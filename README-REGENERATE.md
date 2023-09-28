@@ -4,8 +4,8 @@ This package was generated using the command below. To regenerate it use the sam
 
 *powershell*
 ```shell
-docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate `
-  -i https://tranconcloud.mendixcloud.com/rest-doc/rest/cloudapi/v1/swagger.json `
+docker run --rm -v "./:/local" openapitools/openapi-generator-cli generate `
+  -i https://static.app.boxwise.nl/pco/swagger.json `
   -g python `
-  -o /local/out/python 
+  -o /local 
 ```

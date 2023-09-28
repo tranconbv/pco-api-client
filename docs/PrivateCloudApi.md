@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **private_cloud_get**
-> List[PrivateCloud2] private_cloud_get(status=status, type=type, env_id=env_id)
+> List[PrivateCloud] private_cloud_get(status=status, type=type, env_id=env_id)
 
 
 
@@ -25,7 +25,7 @@ Method | HTTP request | Description
 import time
 import os
 import openapi_client
-from openapi_client.models.private_cloud2 import PrivateCloud2
+from openapi_client.models.private_cloud import PrivateCloud
 from openapi_client.rest import ApiException
 from pprint import pprint
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[PrivateCloud2]**](PrivateCloud2.md)
+[**List[PrivateCloud]**](PrivateCloud.md)
 
 ### Authorization
 
@@ -182,6 +182,7 @@ Name | Type | Description  | Notes
 import time
 import os
 import openapi_client
+from openapi_client.models.location_update import LocationUpdate
 from openapi_client.rest import ApiException
 from pprint import pprint
 
@@ -207,7 +208,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.PrivateCloudApi(api_client)
     id = 'id_example' # str | 
-    status = None # object |  (optional)
+    status = openapi_client.LocationUpdate() # LocationUpdate |  (optional)
 
     try:
         api_response = api_instance.private_cloud_id_locations_put(id, status=status)
@@ -224,7 +225,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
- **status** | **object**|  | [optional] 
+ **status** | [**LocationUpdate**](LocationUpdate.md)|  | [optional] 
 
 ### Return type
 
@@ -248,7 +249,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **private_cloud_id_whitelist_post**
-> str private_cloud_id_whitelist_post(id)
+> str private_cloud_id_whitelist_post(id, whitelist=whitelist)
 
 
 
@@ -259,6 +260,7 @@ Name | Type | Description  | Notes
 import time
 import os
 import openapi_client
+from openapi_client.models.whitelist_create import WhitelistCreate
 from openapi_client.rest import ApiException
 from pprint import pprint
 
@@ -284,9 +286,10 @@ with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.PrivateCloudApi(api_client)
     id = 'id_example' # str | 
+    whitelist = [openapi_client.WhitelistCreate()] # List[WhitelistCreate] |  (optional)
 
     try:
-        api_response = api_instance.private_cloud_id_whitelist_post(id)
+        api_response = api_instance.private_cloud_id_whitelist_post(id, whitelist=whitelist)
         print("The response of PrivateCloudApi->private_cloud_id_whitelist_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -300,6 +303,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
+ **whitelist** | [**List[WhitelistCreate]**](WhitelistCreate.md)|  | [optional] 
 
 ### Return type
 
@@ -323,7 +327,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **private_cloud_locations_get**
-> List[PrivateCloud] private_cloud_locations_get(env_id=env_id, status=status)
+> List[PrivateCloudLocations] private_cloud_locations_get(env_id=env_id, status=status)
 
 
 
@@ -334,7 +338,7 @@ Name | Type | Description  | Notes
 import time
 import os
 import openapi_client
-from openapi_client.models.private_cloud import PrivateCloud
+from openapi_client.models.private_cloud_locations import PrivateCloudLocations
 from openapi_client.rest import ApiException
 from pprint import pprint
 
@@ -381,7 +385,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[PrivateCloud]**](PrivateCloud.md)
+[**List[PrivateCloudLocations]**](PrivateCloudLocations.md)
 
 ### Authorization
 
@@ -401,7 +405,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **private_cloud_post**
-> object private_cloud_post()
+> object private_cloud_post(pco=pco)
 
 
 
@@ -412,6 +416,7 @@ Name | Type | Description  | Notes
 import time
 import os
 import openapi_client
+from openapi_client.models.private_cloud_create import PrivateCloudCreate
 from openapi_client.rest import ApiException
 from pprint import pprint
 
@@ -436,9 +441,10 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.PrivateCloudApi(api_client)
+    pco = openapi_client.PrivateCloudCreate() # PrivateCloudCreate | The pco to create (optional)
 
     try:
-        api_response = api_instance.private_cloud_post()
+        api_response = api_instance.private_cloud_post(pco=pco)
         print("The response of PrivateCloudApi->private_cloud_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -448,7 +454,10 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pco** | [**PrivateCloudCreate**](PrivateCloudCreate.md)| The pco to create | [optional] 
 
 ### Return type
 
@@ -472,7 +481,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **private_cloud_put**
-> str private_cloud_put()
+> str private_cloud_put(pco=pco)
 
 
 
@@ -483,6 +492,7 @@ This endpoint does not need any parameter.
 import time
 import os
 import openapi_client
+from openapi_client.models.private_cloud_put import PrivateCloudPut
 from openapi_client.rest import ApiException
 from pprint import pprint
 
@@ -507,9 +517,10 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.PrivateCloudApi(api_client)
+    pco = openapi_client.PrivateCloudPut() # PrivateCloudPut | The pco to change (optional)
 
     try:
-        api_response = api_instance.private_cloud_put()
+        api_response = api_instance.private_cloud_put(pco=pco)
         print("The response of PrivateCloudApi->private_cloud_put:\n")
         pprint(api_response)
     except Exception as e:
@@ -519,7 +530,10 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pco** | [**PrivateCloudPut**](PrivateCloudPut.md)| The pco to change | [optional] 
 
 ### Return type
 

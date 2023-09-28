@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **locations_id_loc_whitelist_post**
-> object locations_id_loc_whitelist_post(id, loc)
+> object locations_id_loc_whitelist_post(id, loc, whitelist=whitelist)
 
 
 
@@ -20,6 +20,7 @@ Method | HTTP request | Description
 import time
 import os
 import openapi_client
+from openapi_client.models.whitelist_create import WhitelistCreate
 from openapi_client.rest import ApiException
 from pprint import pprint
 
@@ -46,9 +47,10 @@ with openapi_client.ApiClient(configuration) as api_client:
     api_instance = openapi_client.LocationsApi(api_client)
     id = 'id_example' # str | 
     loc = 'loc_example' # str | 
+    whitelist = [openapi_client.WhitelistCreate()] # List[WhitelistCreate] |  (optional)
 
     try:
-        api_response = api_instance.locations_id_loc_whitelist_post(id, loc)
+        api_response = api_instance.locations_id_loc_whitelist_post(id, loc, whitelist=whitelist)
         print("The response of LocationsApi->locations_id_loc_whitelist_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -63,6 +65,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  | 
  **loc** | **str**|  | 
+ **whitelist** | [**List[WhitelistCreate]**](WhitelistCreate.md)|  | [optional] 
 
 ### Return type
 
@@ -86,7 +89,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **locations_post**
-> object locations_post()
+> object locations_post(location=location)
 
 
 
@@ -97,6 +100,7 @@ Name | Type | Description  | Notes
 import time
 import os
 import openapi_client
+from openapi_client.models.location_create import LocationCreate
 from openapi_client.rest import ApiException
 from pprint import pprint
 
@@ -121,9 +125,10 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.LocationsApi(api_client)
+    location = openapi_client.LocationCreate() # LocationCreate |  (optional)
 
     try:
-        api_response = api_instance.locations_post()
+        api_response = api_instance.locations_post(location=location)
         print("The response of LocationsApi->locations_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -133,7 +138,10 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **location** | [**LocationCreate**](LocationCreate.md)|  | [optional] 
 
 ### Return type
 

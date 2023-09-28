@@ -18,10 +18,12 @@ import warnings
 
 from pydantic import validate_arguments, ValidationError
 
-from pydantic import StrictStr
+from pydantic import StrictStr, conlist
 
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
+from openapi_client.models.location_create import LocationCreate
+from openapi_client.models.whitelist_create import WhitelistCreate
 
 from openapi_client.api_client import ApiClient
 from openapi_client.api_response import ApiResponse
@@ -44,19 +46,21 @@ class LocationsApi:
         self.api_client = api_client
 
     @validate_arguments
-    def locations_id_loc_whitelist_post(self, id : StrictStr, loc : StrictStr, **kwargs) -> object:  # noqa: E501
+    def locations_id_loc_whitelist_post(self, id : StrictStr, loc : StrictStr, whitelist : Optional[conlist(WhitelistCreate)] = None, **kwargs) -> object:  # noqa: E501
         """locations_id_loc_whitelist_post  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.locations_id_loc_whitelist_post(id, loc, async_req=True)
+        >>> thread = api.locations_id_loc_whitelist_post(id, loc, whitelist, async_req=True)
         >>> result = thread.get()
 
         :param id: (required)
         :type id: str
         :param loc: (required)
         :type loc: str
+        :param whitelist:
+        :type whitelist: List[WhitelistCreate]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -72,22 +76,24 @@ class LocationsApi:
         if '_preload_content' in kwargs:
             message = "Error! Please call the locations_id_loc_whitelist_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.locations_id_loc_whitelist_post_with_http_info(id, loc, **kwargs)  # noqa: E501
+        return self.locations_id_loc_whitelist_post_with_http_info(id, loc, whitelist, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def locations_id_loc_whitelist_post_with_http_info(self, id : StrictStr, loc : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
+    def locations_id_loc_whitelist_post_with_http_info(self, id : StrictStr, loc : StrictStr, whitelist : Optional[conlist(WhitelistCreate)] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """locations_id_loc_whitelist_post  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.locations_id_loc_whitelist_post_with_http_info(id, loc, async_req=True)
+        >>> thread = api.locations_id_loc_whitelist_post_with_http_info(id, loc, whitelist, async_req=True)
         >>> result = thread.get()
 
         :param id: (required)
         :type id: str
         :param loc: (required)
         :type loc: str
+        :param whitelist:
+        :type whitelist: List[WhitelistCreate]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -117,7 +123,8 @@ class LocationsApi:
 
         _all_params = [
             'id',
-            'loc'
+            'loc',
+            'whitelist'
         ]
         _all_params.extend(
             [
@@ -161,6 +168,9 @@ class LocationsApi:
         _files = {}
         # process the body parameter
         _body_params = None
+        if _params['whitelist'] is not None:
+            _body_params = _params['whitelist']
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             ['*/*'])  # noqa: E501
@@ -191,15 +201,17 @@ class LocationsApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def locations_post(self, **kwargs) -> object:  # noqa: E501
+    def locations_post(self, location : Optional[LocationCreate] = None, **kwargs) -> object:  # noqa: E501
         """locations_post  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.locations_post(async_req=True)
+        >>> thread = api.locations_post(location, async_req=True)
         >>> result = thread.get()
 
+        :param location:
+        :type location: LocationCreate
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -215,18 +227,20 @@ class LocationsApi:
         if '_preload_content' in kwargs:
             message = "Error! Please call the locations_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.locations_post_with_http_info(**kwargs)  # noqa: E501
+        return self.locations_post_with_http_info(location, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def locations_post_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
+    def locations_post_with_http_info(self, location : Optional[LocationCreate] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """locations_post  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.locations_post_with_http_info(async_req=True)
+        >>> thread = api.locations_post_with_http_info(location, async_req=True)
         >>> result = thread.get()
 
+        :param location:
+        :type location: LocationCreate
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -255,6 +269,7 @@ class LocationsApi:
         _params = locals()
 
         _all_params = [
+            'location'
         ]
         _all_params.extend(
             [
@@ -292,6 +307,9 @@ class LocationsApi:
         _files = {}
         # process the body parameter
         _body_params = None
+        if _params['location'] is not None:
+            _body_params = _params['location']
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             ['*/*'])  # noqa: E501

@@ -18,12 +18,17 @@ import warnings
 
 from pydantic import validate_arguments, ValidationError
 
-from pydantic import StrictStr
+from typing_extensions import Annotated
+from pydantic import Field, StrictStr, conlist
 
 from typing import Any, Dict, List, Optional
 
+from openapi_client.models.location_update import LocationUpdate
 from openapi_client.models.private_cloud import PrivateCloud
-from openapi_client.models.private_cloud2 import PrivateCloud2
+from openapi_client.models.private_cloud_create import PrivateCloudCreate
+from openapi_client.models.private_cloud_locations import PrivateCloudLocations
+from openapi_client.models.private_cloud_put import PrivateCloudPut
+from openapi_client.models.whitelist_create import WhitelistCreate
 
 from openapi_client.api_client import ApiClient
 from openapi_client.api_response import ApiResponse
@@ -46,7 +51,7 @@ class PrivateCloudApi:
         self.api_client = api_client
 
     @validate_arguments
-    def private_cloud_get(self, status : Optional[StrictStr] = None, type : Optional[StrictStr] = None, env_id : Optional[StrictStr] = None, **kwargs) -> List[PrivateCloud2]:  # noqa: E501
+    def private_cloud_get(self, status : Optional[StrictStr] = None, type : Optional[StrictStr] = None, env_id : Optional[StrictStr] = None, **kwargs) -> List[PrivateCloud]:  # noqa: E501
         """private_cloud_get  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -70,7 +75,7 @@ class PrivateCloudApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: List[PrivateCloud2]
+        :rtype: List[PrivateCloud]
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -116,7 +121,7 @@ class PrivateCloudApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(List[PrivateCloud2], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(List[PrivateCloud], status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -179,7 +184,7 @@ class PrivateCloudApi:
         _auth_settings = ['basicAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "List[PrivateCloud2]",
+            '200': "List[PrivateCloud]",
             '401': None,
         }
 
@@ -348,7 +353,7 @@ class PrivateCloudApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def private_cloud_id_locations_put(self, id : StrictStr, status : Optional[Dict[str, Any]] = None, **kwargs) -> str:  # noqa: E501
+    def private_cloud_id_locations_put(self, id : StrictStr, status : Optional[LocationUpdate] = None, **kwargs) -> str:  # noqa: E501
         """private_cloud_id_locations_put  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -360,7 +365,7 @@ class PrivateCloudApi:
         :param id: (required)
         :type id: str
         :param status:
-        :type status: object
+        :type status: LocationUpdate
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -379,7 +384,7 @@ class PrivateCloudApi:
         return self.private_cloud_id_locations_put_with_http_info(id, status, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def private_cloud_id_locations_put_with_http_info(self, id : StrictStr, status : Optional[Dict[str, Any]] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def private_cloud_id_locations_put_with_http_info(self, id : StrictStr, status : Optional[LocationUpdate] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """private_cloud_id_locations_put  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -391,7 +396,7 @@ class PrivateCloudApi:
         :param id: (required)
         :type id: str
         :param status:
-        :type status: object
+        :type status: LocationUpdate
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -495,17 +500,19 @@ class PrivateCloudApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def private_cloud_id_whitelist_post(self, id : StrictStr, **kwargs) -> str:  # noqa: E501
+    def private_cloud_id_whitelist_post(self, id : StrictStr, whitelist : Optional[conlist(WhitelistCreate)] = None, **kwargs) -> str:  # noqa: E501
         """private_cloud_id_whitelist_post  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.private_cloud_id_whitelist_post(id, async_req=True)
+        >>> thread = api.private_cloud_id_whitelist_post(id, whitelist, async_req=True)
         >>> result = thread.get()
 
         :param id: (required)
         :type id: str
+        :param whitelist:
+        :type whitelist: List[WhitelistCreate]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -521,20 +528,22 @@ class PrivateCloudApi:
         if '_preload_content' in kwargs:
             message = "Error! Please call the private_cloud_id_whitelist_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.private_cloud_id_whitelist_post_with_http_info(id, **kwargs)  # noqa: E501
+        return self.private_cloud_id_whitelist_post_with_http_info(id, whitelist, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def private_cloud_id_whitelist_post_with_http_info(self, id : StrictStr, **kwargs) -> ApiResponse:  # noqa: E501
+    def private_cloud_id_whitelist_post_with_http_info(self, id : StrictStr, whitelist : Optional[conlist(WhitelistCreate)] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """private_cloud_id_whitelist_post  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.private_cloud_id_whitelist_post_with_http_info(id, async_req=True)
+        >>> thread = api.private_cloud_id_whitelist_post_with_http_info(id, whitelist, async_req=True)
         >>> result = thread.get()
 
         :param id: (required)
         :type id: str
+        :param whitelist:
+        :type whitelist: List[WhitelistCreate]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -563,7 +572,8 @@ class PrivateCloudApi:
         _params = locals()
 
         _all_params = [
-            'id'
+            'id',
+            'whitelist'
         ]
         _all_params.extend(
             [
@@ -604,6 +614,9 @@ class PrivateCloudApi:
         _files = {}
         # process the body parameter
         _body_params = None
+        if _params['whitelist'] is not None:
+            _body_params = _params['whitelist']
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             ['*/*'])  # noqa: E501
@@ -634,7 +647,7 @@ class PrivateCloudApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def private_cloud_locations_get(self, env_id : Optional[StrictStr] = None, status : Optional[StrictStr] = None, **kwargs) -> List[PrivateCloud]:  # noqa: E501
+    def private_cloud_locations_get(self, env_id : Optional[StrictStr] = None, status : Optional[StrictStr] = None, **kwargs) -> List[PrivateCloudLocations]:  # noqa: E501
         """private_cloud_locations_get  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -656,7 +669,7 @@ class PrivateCloudApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: List[PrivateCloud]
+        :rtype: List[PrivateCloudLocations]
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -700,7 +713,7 @@ class PrivateCloudApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(List[PrivateCloud], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(List[PrivateCloudLocations], status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -759,7 +772,7 @@ class PrivateCloudApi:
         _auth_settings = ['basicAuth']  # noqa: E501
 
         _response_types_map = {
-            '200': "List[PrivateCloud]",
+            '200': "List[PrivateCloudLocations]",
             '401': None,
         }
 
@@ -781,15 +794,17 @@ class PrivateCloudApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def private_cloud_post(self, **kwargs) -> object:  # noqa: E501
+    def private_cloud_post(self, pco : Annotated[Optional[PrivateCloudCreate], Field(description="The pco to create")] = None, **kwargs) -> object:  # noqa: E501
         """private_cloud_post  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.private_cloud_post(async_req=True)
+        >>> thread = api.private_cloud_post(pco, async_req=True)
         >>> result = thread.get()
 
+        :param pco: The pco to create
+        :type pco: PrivateCloudCreate
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -805,18 +820,20 @@ class PrivateCloudApi:
         if '_preload_content' in kwargs:
             message = "Error! Please call the private_cloud_post_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.private_cloud_post_with_http_info(**kwargs)  # noqa: E501
+        return self.private_cloud_post_with_http_info(pco, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def private_cloud_post_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
+    def private_cloud_post_with_http_info(self, pco : Annotated[Optional[PrivateCloudCreate], Field(description="The pco to create")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """private_cloud_post  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.private_cloud_post_with_http_info(async_req=True)
+        >>> thread = api.private_cloud_post_with_http_info(pco, async_req=True)
         >>> result = thread.get()
 
+        :param pco: The pco to create
+        :type pco: PrivateCloudCreate
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -845,6 +862,7 @@ class PrivateCloudApi:
         _params = locals()
 
         _all_params = [
+            'pco'
         ]
         _all_params.extend(
             [
@@ -882,6 +900,9 @@ class PrivateCloudApi:
         _files = {}
         # process the body parameter
         _body_params = None
+        if _params['pco'] is not None:
+            _body_params = _params['pco']
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             ['*/*'])  # noqa: E501
@@ -912,15 +933,17 @@ class PrivateCloudApi:
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def private_cloud_put(self, **kwargs) -> str:  # noqa: E501
+    def private_cloud_put(self, pco : Annotated[Optional[PrivateCloudPut], Field(description="The pco to change")] = None, **kwargs) -> str:  # noqa: E501
         """private_cloud_put  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.private_cloud_put(async_req=True)
+        >>> thread = api.private_cloud_put(pco, async_req=True)
         >>> result = thread.get()
 
+        :param pco: The pco to change
+        :type pco: PrivateCloudPut
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -936,18 +959,20 @@ class PrivateCloudApi:
         if '_preload_content' in kwargs:
             message = "Error! Please call the private_cloud_put_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.private_cloud_put_with_http_info(**kwargs)  # noqa: E501
+        return self.private_cloud_put_with_http_info(pco, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def private_cloud_put_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
+    def private_cloud_put_with_http_info(self, pco : Annotated[Optional[PrivateCloudPut], Field(description="The pco to change")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """private_cloud_put  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.private_cloud_put_with_http_info(async_req=True)
+        >>> thread = api.private_cloud_put_with_http_info(pco, async_req=True)
         >>> result = thread.get()
 
+        :param pco: The pco to change
+        :type pco: PrivateCloudPut
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -976,6 +1001,7 @@ class PrivateCloudApi:
         _params = locals()
 
         _all_params = [
+            'pco'
         ]
         _all_params.extend(
             [
@@ -1013,6 +1039,9 @@ class PrivateCloudApi:
         _files = {}
         # process the body parameter
         _body_params = None
+        if _params['pco'] is not None:
+            _body_params = _params['pco']
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             ['*/*'])  # noqa: E501

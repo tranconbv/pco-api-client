@@ -79,9 +79,10 @@ with openapi_client.ApiClient(configuration) as api_client:
     api_instance = openapi_client.LocationsApi(api_client)
     id = 'id_example' # str | 
     loc = 'loc_example' # str | 
+    whitelist = [openapi_client.WhitelistCreate()] # List[WhitelistCreate] |  (optional)
 
     try:
-        api_response = api_instance.locations_id_loc_whitelist_post(id, loc)
+        api_response = api_instance.locations_id_loc_whitelist_post(id, loc, whitelist=whitelist)
         print("The response of LocationsApi->locations_id_loc_whitelist_post:\n")
         pprint(api_response)
     except ApiException as e:
@@ -108,16 +109,30 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [LocationCreate](docs/LocationCreate.md)
+ - [LocationCreateEnvironmentId](docs/LocationCreateEnvironmentId.md)
+ - [LocationCreateEnvironmentIdPrivateCloud](docs/LocationCreateEnvironmentIdPrivateCloud.md)
+ - [LocationCreateEnvironmentIdPrivateCloudLocationVPN](docs/LocationCreateEnvironmentIdPrivateCloudLocationVPN.md)
+ - [LocationCreateEnvironmentIdPrivateCloudLocationVPNIKEVersion](docs/LocationCreateEnvironmentIdPrivateCloudLocationVPNIKEVersion.md)
+ - [LocationUpdate](docs/LocationUpdate.md)
+ - [LocationUpdatePrivateCloud](docs/LocationUpdatePrivateCloud.md)
+ - [LocationUpdatePrivateCloudLocationVPNs](docs/LocationUpdatePrivateCloudLocationVPNs.md)
  - [LocationVPN](docs/LocationVPN.md)
  - [PrivateCloud](docs/PrivateCloud.md)
- - [PrivateCloud2](docs/PrivateCloud2.md)
- - [PrivateCloud2BoxwiseVersion](docs/PrivateCloud2BoxwiseVersion.md)
- - [PrivateCloud2CloudSize](docs/PrivateCloud2CloudSize.md)
- - [PrivateCloud2DeploymentProfile](docs/PrivateCloud2DeploymentProfile.md)
- - [PrivateCloud2EnvironmentId](docs/PrivateCloud2EnvironmentId.md)
- - [PrivateCloud2Subscription](docs/PrivateCloud2Subscription.md)
- - [PrivateCloudIKEVersion](docs/PrivateCloudIKEVersion.md)
+ - [PrivateCloudBoxwiseVersion](docs/PrivateCloudBoxwiseVersion.md)
+ - [PrivateCloudCloudSize](docs/PrivateCloudCloudSize.md)
+ - [PrivateCloudCreate](docs/PrivateCloudCreate.md)
+ - [PrivateCloudCreateCloudSize](docs/PrivateCloudCreateCloudSize.md)
+ - [PrivateCloudCreateSubscription](docs/PrivateCloudCreateSubscription.md)
+ - [PrivateCloudDeploymentProfile](docs/PrivateCloudDeploymentProfile.md)
+ - [PrivateCloudEnvironmentId](docs/PrivateCloudEnvironmentId.md)
+ - [PrivateCloudLocations](docs/PrivateCloudLocations.md)
+ - [PrivateCloudLocationsIKEVersion](docs/PrivateCloudLocationsIKEVersion.md)
+ - [PrivateCloudPut](docs/PrivateCloudPut.md)
+ - [PrivateCloudPutPrivateCloud](docs/PrivateCloudPutPrivateCloud.md)
+ - [PrivateCloudSubscription](docs/PrivateCloudSubscription.md)
  - [Subnet](docs/Subnet.md)
+ - [WhitelistCreate](docs/WhitelistCreate.md)
 
 
 <a id="documentation-for-authorization"></a>
