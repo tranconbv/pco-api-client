@@ -31,7 +31,8 @@ class PrivateCloudSubscription(BaseModel):
     PrivateCloudSubscription
     """ # noqa: E501
     subscription_id: Optional[StrictInt] = Field(default=None, alias="SubscriptionId")
-    __properties: ClassVar[List[str]] = ["SubscriptionId"]
+    license_id: Optional[StrictInt] = Field(default=None, alias="LicenseId")
+    __properties: ClassVar[List[str]] = ["SubscriptionId", "LicenseId"]
 
     model_config = {
         "populate_by_name": True,
@@ -81,7 +82,8 @@ class PrivateCloudSubscription(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "SubscriptionId": obj.get("SubscriptionId")
+            "SubscriptionId": obj.get("SubscriptionId"),
+            "LicenseId": obj.get("LicenseId")
         })
         return _obj
 
