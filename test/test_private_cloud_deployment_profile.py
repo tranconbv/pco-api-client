@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.private_cloud_deployment_profile import PrivateCloudDeploymentProfile  # noqa: E501
+from openapi_client.models.private_cloud_deployment_profile import PrivateCloudDeploymentProfile
 
 class TestPrivateCloudDeploymentProfile(unittest.TestCase):
     """PrivateCloudDeploymentProfile unit test stubs"""
@@ -33,7 +33,7 @@ class TestPrivateCloudDeploymentProfile(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PrivateCloudDeploymentProfile`
         """
-        model = PrivateCloudDeploymentProfile()  # noqa: E501
+        model = PrivateCloudDeploymentProfile()
         if include_optional:
             return PrivateCloudDeploymentProfile(
                 description = ''

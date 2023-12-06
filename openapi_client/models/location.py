@@ -28,9 +28,9 @@ try:
 except ImportError:
     from typing_extensions import Self
 
-class LocationVPN(BaseModel):
+class Location(BaseModel):
     """
-    LocationVPN
+    Location
     """ # noqa: E501
     location: Optional[StrictStr] = Field(default=None, alias="Location")
     status: Optional[StrictStr] = Field(default=None, alias="Status")
@@ -67,7 +67,7 @@ class LocationVPN(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of LocationVPN from a JSON string"""
+        """Create an instance of Location from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -100,7 +100,7 @@ class LocationVPN(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Dict) -> Self:
-        """Create an instance of LocationVPN from a dict"""
+        """Create an instance of Location from a dict"""
         if obj is None:
             return None
 

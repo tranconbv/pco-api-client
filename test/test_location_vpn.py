@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.location_vpn import LocationVPN  # noqa: E501
+from openapi_client.models.location_vpn import LocationVPN
 
 class TestLocationVPN(unittest.TestCase):
     """LocationVPN unit test stubs"""
@@ -33,16 +33,19 @@ class TestLocationVPN(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `LocationVPN`
         """
-        model = LocationVPN()  # noqa: E501
+        model = LocationVPN()
         if include_optional:
             return LocationVPN(
                 location = '',
-                peer_ip = '',
-                gate_way_ip = '',
-                subnet = '',
                 status = 'BlockedForEdit',
-                shared_secret = '',
-                whitelist = ''
+                whitelist = '',
+                ike_version = openapi_client.models.private_cloud_boxwise_version.PrivateCloud_BoxwiseVersion(
+                    version = '', ),
+                subnets = [
+                    openapi_client.models.subnet.Subnet(
+                        subnet = '', 
+                        cidr_notation = '', )
+                    ]
             )
         else:
             return LocationVPN(

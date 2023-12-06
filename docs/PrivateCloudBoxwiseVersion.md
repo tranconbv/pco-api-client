@@ -2,11 +2,10 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **version** | **str** |  | [optional] 
-**name** | **str** |  | [optional] 
-**id** | **int** |  | [optional] 
 
 ## Example
 

@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.subnet import Subnet  # noqa: E501
+from openapi_client.models.subnet import Subnet
 
 class TestSubnet(unittest.TestCase):
     """Subnet unit test stubs"""
@@ -33,13 +33,11 @@ class TestSubnet(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `Subnet`
         """
-        model = Subnet()  # noqa: E501
+        model = Subnet()
         if include_optional:
             return Subnet(
                 subnet = '',
-                cidr_notation = '',
-                first_assignable_host = '',
-                last_assignable_host = ''
+                cidr_notation = ''
             )
         else:
             return Subnet(

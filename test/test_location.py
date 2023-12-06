@@ -15,10 +15,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.private_cloud2_cloud_size import PrivateCloud2CloudSize  # noqa: E501
+from openapi_client.models.location import Location
 
-class TestPrivateCloud2CloudSize(unittest.TestCase):
-    """PrivateCloud2CloudSize unit test stubs"""
+class TestLocation(unittest.TestCase):
+    """Location unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,26 +26,34 @@ class TestPrivateCloud2CloudSize(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> PrivateCloud2CloudSize:
-        """Test PrivateCloud2CloudSize
+    def make_instance(self, include_optional) -> Location:
+        """Test Location
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `PrivateCloud2CloudSize`
+        # uncomment below to create an instance of `Location`
         """
-        model = PrivateCloud2CloudSize()  # noqa: E501
+        model = Location()
         if include_optional:
-            return PrivateCloud2CloudSize(
-                description = '',
-                code = ''
+            return Location(
+                location = '',
+                status = 'BlockedForEdit',
+                whitelist = '',
+                ike_version = openapi_client.models.private_cloud_boxwise_version.PrivateCloud_BoxwiseVersion(
+                    version = '', ),
+                subnets = [
+                    openapi_client.models.subnet.Subnet(
+                        subnet = '', 
+                        cidr_notation = '', )
+                    ]
             )
         else:
-            return PrivateCloud2CloudSize(
+            return Location(
         )
         """
 
-    def testPrivateCloud2CloudSize(self):
-        """Test PrivateCloud2CloudSize"""
+    def testLocation(self):
+        """Test Location"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

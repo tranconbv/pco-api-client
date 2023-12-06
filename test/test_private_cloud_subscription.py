@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.private_cloud_subscription import PrivateCloudSubscription  # noqa: E501
+from openapi_client.models.private_cloud_subscription import PrivateCloudSubscription
 
 class TestPrivateCloudSubscription(unittest.TestCase):
     """PrivateCloudSubscription unit test stubs"""
@@ -33,11 +33,10 @@ class TestPrivateCloudSubscription(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PrivateCloudSubscription`
         """
-        model = PrivateCloudSubscription()  # noqa: E501
+        model = PrivateCloudSubscription()
         if include_optional:
             return PrivateCloudSubscription(
-                subscription_id = 56,
-                license_id = 56
+                subscription_id = 56
             )
         else:
             return PrivateCloudSubscription(

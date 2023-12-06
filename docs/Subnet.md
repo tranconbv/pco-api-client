@@ -2,12 +2,11 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **subnet** | **str** |  | [optional] 
 **cidr_notation** | **str** |  | [optional] 
-**first_assignable_host** | **str** |  | [optional] 
-**last_assignable_host** | **str** |  | [optional] 
 
 ## Example
 

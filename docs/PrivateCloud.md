@@ -2,8 +2,10 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**environment_id** | **str** |  | [optional] 
 **cloud_status** | **str** |  | [optional] 
 **vm_name** | **str** |  | [optional] 
 **vm_user** | **str** |  | [optional] 
@@ -17,14 +19,15 @@ Name | Type | Description | Notes
 **vpn_gateway** | **str** |  | [optional] 
 **region** | **str** |  | [optional] 
 **boxwise_url** | **str** |  | [optional] 
-**whitelist** | **str** |  | [optional] 
+**github_access_token_url** | **str** |  | [optional] 
+**worker_status** | **str** |  | [optional] 
 **boxwise_version** | [**PrivateCloudBoxwiseVersion**](PrivateCloudBoxwiseVersion.md) |  | [optional] 
 **deployment_profile** | [**PrivateCloudDeploymentProfile**](PrivateCloudDeploymentProfile.md) |  | [optional] 
-**environment_id** | [**PrivateCloudEnvironmentId**](PrivateCloudEnvironmentId.md) |  | [optional] 
-**location_vpns** | [**List[LocationVPN]**](LocationVPN.md) |  | [optional] 
 **cloud_size** | [**PrivateCloudCloudSize**](PrivateCloudCloudSize.md) |  | [optional] 
-**subnets** | [**List[Subnet]**](Subnet.md) |  | [optional] 
 **subscription** | [**PrivateCloudSubscription**](PrivateCloudSubscription.md) |  | [optional] 
+**location_vpns** | [**List[LocationVPN]**](LocationVPN.md) |  | [optional] 
+**subnets** | [**List[Subnet]**](Subnet.md) |  | [optional] 
+**whitelist** | **str** |  | [optional] 
 
 ## Example
 

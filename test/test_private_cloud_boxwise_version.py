@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.private_cloud_boxwise_version import PrivateCloudBoxwiseVersion  # noqa: E501
+from openapi_client.models.private_cloud_boxwise_version import PrivateCloudBoxwiseVersion
 
 class TestPrivateCloudBoxwiseVersion(unittest.TestCase):
     """PrivateCloudBoxwiseVersion unit test stubs"""
@@ -33,12 +33,10 @@ class TestPrivateCloudBoxwiseVersion(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PrivateCloudBoxwiseVersion`
         """
-        model = PrivateCloudBoxwiseVersion()  # noqa: E501
+        model = PrivateCloudBoxwiseVersion()
         if include_optional:
             return PrivateCloudBoxwiseVersion(
-                version = '',
-                name = '',
-                id = 56
+                version = ''
             )
         else:
             return PrivateCloudBoxwiseVersion(

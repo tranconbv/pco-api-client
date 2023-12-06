@@ -18,44 +18,45 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictStr, conlist, validator
-from openapi_client.models.location_vpn import LocationVPN
-from openapi_client.models.private_cloud2_boxwise_version import PrivateCloud2BoxwiseVersion
-from openapi_client.models.private_cloud2_cloud_size import PrivateCloud2CloudSize
-from openapi_client.models.private_cloud2_deployment_profile import PrivateCloud2DeploymentProfile
-from openapi_client.models.private_cloud2_environment_id import PrivateCloud2EnvironmentId
-from openapi_client.models.private_cloud2_subscription import PrivateCloud2Subscription
-from openapi_client.models.subnet import Subnet
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictStr, field_validator
+from pydantic import Field
+from openapi_client.models.private_cloud_boxwise_version import PrivateCloudBoxwiseVersion
+from openapi_client.models.private_cloud_cloud_size import PrivateCloudCloudSize
+from openapi_client.models.private_cloud_deployment_profile import PrivateCloudDeploymentProfile
+from openapi_client.models.private_cloud_subscription import PrivateCloudSubscription
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class PrivateCloud2(BaseModel):
     """
     PrivateCloud2
-    """
-    cloud_status: Optional[StrictStr] = Field(None, alias="CloudStatus")
-    vm_name: Optional[StrictStr] = Field(None, alias="VM_Name")
-    vm_user: Optional[StrictStr] = Field(None, alias="VM_User")
-    vm_password: Optional[StrictStr] = Field(None, alias="VM_Password")
-    database_user: Optional[StrictStr] = Field(None, alias="Database_User")
-    database_password: Optional[StrictStr] = Field(None, alias="Database_Password")
-    shared_secret: Optional[StrictStr] = Field(None, alias="SharedSecret")
-    public_ip: Optional[StrictStr] = Field(None, alias="Public_IP")
-    internal_ip: Optional[StrictStr] = Field(None, alias="Internal_IP")
-    subnet: Optional[StrictStr] = Field(None, alias="Subnet")
-    vpn_gateway: Optional[StrictStr] = Field(None, alias="VPN_Gateway")
-    region: Optional[StrictStr] = Field(None, alias="Region")
-    boxwise_url: Optional[StrictStr] = Field(None, alias="Boxwise_url")
-    whitelist: Optional[StrictStr] = Field(None, alias="Whitelist")
-    boxwise_version: Optional[PrivateCloud2BoxwiseVersion] = Field(None, alias="BoxwiseVersion")
-    deployment_profile: Optional[PrivateCloud2DeploymentProfile] = Field(None, alias="DeploymentProfile")
-    environment_id: Optional[PrivateCloud2EnvironmentId] = Field(None, alias="EnvironmentId")
-    location_vpns: Optional[conlist(LocationVPN)] = Field(None, alias="Location_VPNs")
-    cloud_size: Optional[PrivateCloud2CloudSize] = Field(None, alias="CloudSize")
-    subnets: Optional[conlist(Subnet)] = Field(None, alias="Subnets")
-    subscription: Optional[PrivateCloud2Subscription] = Field(None, alias="Subscription")
-    __properties = ["CloudStatus", "VM_Name", "VM_User", "VM_Password", "Database_User", "Database_Password", "SharedSecret", "Public_IP", "Internal_IP", "Subnet", "VPN_Gateway", "Region", "Boxwise_url", "Whitelist", "BoxwiseVersion", "DeploymentProfile", "EnvironmentId", "Location_VPNs", "CloudSize", "Subnets", "Subscription"]
+    """ # noqa: E501
+    environment_id: Optional[StrictStr] = Field(default=None, alias="EnvironmentId")
+    cloud_status: Optional[StrictStr] = Field(default=None, alias="CloudStatus")
+    vm_name: Optional[StrictStr] = Field(default=None, alias="VM_Name")
+    vm_user: Optional[StrictStr] = Field(default=None, alias="VM_User")
+    vm_password: Optional[StrictStr] = Field(default=None, alias="VM_Password")
+    database_user: Optional[StrictStr] = Field(default=None, alias="Database_User")
+    database_password: Optional[StrictStr] = Field(default=None, alias="Database_Password")
+    shared_secret: Optional[StrictStr] = Field(default=None, alias="SharedSecret")
+    public_ip: Optional[StrictStr] = Field(default=None, alias="Public_IP")
+    internal_ip: Optional[StrictStr] = Field(default=None, alias="Internal_IP")
+    subnet: Optional[StrictStr] = Field(default=None, alias="Subnet")
+    vpn_gateway: Optional[StrictStr] = Field(default=None, alias="VPN_Gateway")
+    region: Optional[StrictStr] = Field(default=None, alias="Region")
+    boxwise_url: Optional[StrictStr] = Field(default=None, alias="Boxwise_url")
+    github_access_token_url: Optional[StrictStr] = Field(default=None, alias="GithubAccessToken_url")
+    worker_status: Optional[StrictStr] = Field(default=None, alias="Worker_status")
+    boxwise_version: Optional[PrivateCloudBoxwiseVersion] = Field(default=None, alias="BoxwiseVersion")
+    deployment_profile: Optional[PrivateCloudDeploymentProfile] = Field(default=None, alias="DeploymentProfile")
+    cloud_size: Optional[PrivateCloudCloudSize] = Field(default=None, alias="CloudSize")
+    subscription: Optional[PrivateCloudSubscription] = Field(default=None, alias="Subscription")
+    __properties: ClassVar[List[str]] = ["EnvironmentId", "CloudStatus", "VM_Name", "VM_User", "VM_Password", "Database_User", "Database_Password", "SharedSecret", "Public_IP", "Internal_IP", "Subnet", "VPN_Gateway", "Region", "Boxwise_url", "GithubAccessToken_url", "Worker_status", "BoxwiseVersion", "DeploymentProfile", "CloudSize", "Subscription"]
 
-    @validator('cloud_status')
+    @field_validator('cloud_status')
     def cloud_status_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -65,92 +66,87 @@ class PrivateCloud2(BaseModel):
             raise ValueError("must be one of enum values ('BlockedForEdit', 'WaitForCreation', 'InProgress', 'Active', 'Error', 'WaitForDeletion', 'Deleted', 'WaitForEdit')")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> PrivateCloud2:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of PrivateCloud2 from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of boxwise_version
         if self.boxwise_version:
             _dict['BoxwiseVersion'] = self.boxwise_version.to_dict()
         # override the default output from pydantic by calling `to_dict()` of deployment_profile
         if self.deployment_profile:
             _dict['DeploymentProfile'] = self.deployment_profile.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of environment_id
-        if self.environment_id:
-            _dict['EnvironmentId'] = self.environment_id.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in location_vpns (list)
-        _items = []
-        if self.location_vpns:
-            for _item in self.location_vpns:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['Location_VPNs'] = _items
         # override the default output from pydantic by calling `to_dict()` of cloud_size
         if self.cloud_size:
             _dict['CloudSize'] = self.cloud_size.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in subnets (list)
-        _items = []
-        if self.subnets:
-            for _item in self.subnets:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['Subnets'] = _items
         # override the default output from pydantic by calling `to_dict()` of subscription
         if self.subscription:
             _dict['Subscription'] = self.subscription.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> PrivateCloud2:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of PrivateCloud2 from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return PrivateCloud2.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = PrivateCloud2.parse_obj({
-            "cloud_status": obj.get("CloudStatus"),
-            "vm_name": obj.get("VM_Name"),
-            "vm_user": obj.get("VM_User"),
-            "vm_password": obj.get("VM_Password"),
-            "database_user": obj.get("Database_User"),
-            "database_password": obj.get("Database_Password"),
-            "shared_secret": obj.get("SharedSecret"),
-            "public_ip": obj.get("Public_IP"),
-            "internal_ip": obj.get("Internal_IP"),
-            "subnet": obj.get("Subnet"),
-            "vpn_gateway": obj.get("VPN_Gateway"),
-            "region": obj.get("Region"),
-            "boxwise_url": obj.get("Boxwise_url"),
-            "whitelist": obj.get("Whitelist"),
-            "boxwise_version": PrivateCloud2BoxwiseVersion.from_dict(obj.get("BoxwiseVersion")) if obj.get("BoxwiseVersion") is not None else None,
-            "deployment_profile": PrivateCloud2DeploymentProfile.from_dict(obj.get("DeploymentProfile")) if obj.get("DeploymentProfile") is not None else None,
-            "environment_id": PrivateCloud2EnvironmentId.from_dict(obj.get("EnvironmentId")) if obj.get("EnvironmentId") is not None else None,
-            "location_vpns": [LocationVPN.from_dict(_item) for _item in obj.get("Location_VPNs")] if obj.get("Location_VPNs") is not None else None,
-            "cloud_size": PrivateCloud2CloudSize.from_dict(obj.get("CloudSize")) if obj.get("CloudSize") is not None else None,
-            "subnets": [Subnet.from_dict(_item) for _item in obj.get("Subnets")] if obj.get("Subnets") is not None else None,
-            "subscription": PrivateCloud2Subscription.from_dict(obj.get("Subscription")) if obj.get("Subscription") is not None else None
+        _obj = cls.model_validate({
+            "EnvironmentId": obj.get("EnvironmentId"),
+            "CloudStatus": obj.get("CloudStatus"),
+            "VM_Name": obj.get("VM_Name"),
+            "VM_User": obj.get("VM_User"),
+            "VM_Password": obj.get("VM_Password"),
+            "Database_User": obj.get("Database_User"),
+            "Database_Password": obj.get("Database_Password"),
+            "SharedSecret": obj.get("SharedSecret"),
+            "Public_IP": obj.get("Public_IP"),
+            "Internal_IP": obj.get("Internal_IP"),
+            "Subnet": obj.get("Subnet"),
+            "VPN_Gateway": obj.get("VPN_Gateway"),
+            "Region": obj.get("Region"),
+            "Boxwise_url": obj.get("Boxwise_url"),
+            "GithubAccessToken_url": obj.get("GithubAccessToken_url"),
+            "Worker_status": obj.get("Worker_status"),
+            "BoxwiseVersion": PrivateCloudBoxwiseVersion.from_dict(obj.get("BoxwiseVersion")) if obj.get("BoxwiseVersion") is not None else None,
+            "DeploymentProfile": PrivateCloudDeploymentProfile.from_dict(obj.get("DeploymentProfile")) if obj.get("DeploymentProfile") is not None else None,
+            "CloudSize": PrivateCloudCloudSize.from_dict(obj.get("CloudSize")) if obj.get("CloudSize") is not None else None,
+            "Subscription": PrivateCloudSubscription.from_dict(obj.get("Subscription")) if obj.get("Subscription") is not None else None
         })
         return _obj
 

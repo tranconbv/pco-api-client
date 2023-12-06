@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.private_cloud import PrivateCloud  # noqa: E501
+from openapi_client.models.private_cloud import PrivateCloud
 
 class TestPrivateCloud(unittest.TestCase):
     """PrivateCloud unit test stubs"""
@@ -33,21 +33,52 @@ class TestPrivateCloud(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PrivateCloud`
         """
-        model = PrivateCloud()  # noqa: E501
+        model = PrivateCloud()
         if include_optional:
             return PrivateCloud(
-                location = '',
-                status = 'BlockedForEdit',
-                whitelist = '',
-                ike_version = openapi_client.models.private_cloud_ike_version.PrivateCloud_IKE_Version(
+                environment_id = '',
+                cloud_status = 'BlockedForEdit',
+                vm_name = '',
+                vm_user = '',
+                vm_password = '',
+                database_user = '',
+                database_password = '',
+                shared_secret = '',
+                public_ip = '',
+                internal_ip = '',
+                subnet = '',
+                vpn_gateway = '',
+                region = '',
+                boxwise_url = '',
+                github_access_token_url = '',
+                worker_status = '',
+                boxwise_version = openapi_client.models.private_cloud_boxwise_version.PrivateCloud_BoxwiseVersion(
                     version = '', ),
+                deployment_profile = openapi_client.models.private_cloud_deployment_profile.PrivateCloud_DeploymentProfile(
+                    description = '', ),
+                cloud_size = openapi_client.models.private_cloud_cloud_size.PrivateCloud_CloudSize(
+                    code = '', ),
+                subscription = openapi_client.models.private_cloud_subscription.PrivateCloud_Subscription(
+                    subscription_id = 56, ),
+                location_vpns = [
+                    openapi_client.models.location_vpn.Location_VPN(
+                        location = '', 
+                        status = 'BlockedForEdit', 
+                        whitelist = '', 
+                        ike_version = openapi_client.models.private_cloud_boxwise_version.PrivateCloud_BoxwiseVersion(
+                            version = '', ), 
+                        subnets = [
+                            openapi_client.models.subnet.Subnet(
+                                subnet = '', 
+                                cidr_notation = '', )
+                            ], )
+                    ],
                 subnets = [
                     openapi_client.models.subnet.Subnet(
                         subnet = '', 
-                        cidr_notation = '', 
-                        first_assignable_host = '', 
-                        last_assignable_host = '', )
-                    ]
+                        cidr_notation = '', )
+                    ],
+                whitelist = ''
             )
         else:
             return PrivateCloud(

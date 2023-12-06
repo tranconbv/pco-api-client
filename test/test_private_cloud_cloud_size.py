@@ -15,7 +15,7 @@
 import unittest
 import datetime
 
-from openapi_client.models.private_cloud_cloud_size import PrivateCloudCloudSize  # noqa: E501
+from openapi_client.models.private_cloud_cloud_size import PrivateCloudCloudSize
 
 class TestPrivateCloudCloudSize(unittest.TestCase):
     """PrivateCloudCloudSize unit test stubs"""
@@ -33,10 +33,9 @@ class TestPrivateCloudCloudSize(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PrivateCloudCloudSize`
         """
-        model = PrivateCloudCloudSize()  # noqa: E501
+        model = PrivateCloudCloudSize()
         if include_optional:
             return PrivateCloudCloudSize(
-                description = '',
                 code = ''
             )
         else:

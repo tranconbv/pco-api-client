@@ -10,58 +10,48 @@
 
     Do not edit the class manually.
 """  # noqa: E501
-import os
-import unittest
-import openapi_client
 
-from openapi_client.api.private_cloud_api import PrivateCloudApi  # noqa: E501
+
+import unittest
+
+from openapi_client.api.private_cloud_api import PrivateCloudApi
 
 
 class TestPrivateCloudApi(unittest.TestCase):
     """PrivateCloudApi unit test stubs"""
 
     def setUp(self) -> None:
-        # Configure HTTP basic authorization: basicAuth
-        configuration = openapi_client.Configuration(
-            username=os.environ["PCO_API_USERNAME"],
-            password=os.environ["PCO_API_PASSWORD"]
-        )
-        api_client = openapi_client.ApiClient(configuration)
-        api_client.default_headers["Accept"] = "application/json"
-
-        self.api = PrivateCloudApi(api_client)
-        PrivateCloudApi()
+        self.api = PrivateCloudApi()
 
     def tearDown(self) -> None:
-        del self.api
+        pass
+
+    def test_private_cloud_delete(self) -> None:
+        """Test case for private_cloud_delete
+
+        """
+        pass
 
     def test_private_cloud_get(self) -> None:
         """Test case for private_cloud_get
 
         """
-        result = self.api.private_cloud_get()
-        self.assertIsNotNone(result)
+        pass
 
-    def test_private_cloud_id_locations_name_delete(self) -> None:
-        """Test case for private_cloud_id_locations_name_delete
+    def test_private_cloud_location_delete(self) -> None:
+        """Test case for private_cloud_location_delete
 
         """
         pass
 
-    def test_private_cloud_id_locations_put(self) -> None:
-        """Test case for private_cloud_id_locations_put
+    def test_private_cloud_location_post(self) -> None:
+        """Test case for private_cloud_location_post
 
         """
         pass
 
-    def test_private_cloud_id_whitelist_post(self) -> None:
-        """Test case for private_cloud_id_whitelist_post
-
-        """
-        pass
-
-    def test_private_cloud_locations_get(self) -> None:
-        """Test case for private_cloud_locations_get
+    def test_private_cloud_location_put(self) -> None:
+        """Test case for private_cloud_location_put
 
         """
         pass

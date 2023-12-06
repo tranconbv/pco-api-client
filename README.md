@@ -76,17 +76,15 @@ configuration = openapi_client.Configuration(
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.LocationsApi(api_client)
-    id = 'id_example' # str | 
-    loc = 'loc_example' # str | 
-    whitelist = [openapi_client.WhitelistCreate()] # List[WhitelistCreate] |  (optional)
+    api_instance = openapi_client.PrivateCloudApi(api_client)
+    environment_id = 'environment_id_example' # str |  (optional)
 
     try:
-        api_response = api_instance.locations_id_loc_whitelist_post(id, loc, whitelist=whitelist)
-        print("The response of LocationsApi->locations_id_loc_whitelist_post:\n")
+        api_response = api_instance.private_cloud_delete(environment_id=environment_id)
+        print("The response of PrivateCloudApi->private_cloud_delete:\n")
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling LocationsApi->locations_id_loc_whitelist_post: %s\n" % e)
+        print("Exception when calling PrivateCloudApi->private_cloud_delete: %s\n" % e)
 
 ```
 
@@ -96,43 +94,26 @@ All URIs are relative to *https://tranconcloud.mendixcloud.com/rest/cloudapi/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*LocationsApi* | [**locations_id_loc_whitelist_post**](docs/LocationsApi.md#locations_id_loc_whitelist_post) | **POST** /Locations/{Id}/{Loc}/Whitelist | 
-*LocationsApi* | [**locations_post**](docs/LocationsApi.md#locations_post) | **POST** /Locations | 
+*PrivateCloudApi* | [**private_cloud_delete**](docs/PrivateCloudApi.md#private_cloud_delete) | **DELETE** /PrivateCloud | 
 *PrivateCloudApi* | [**private_cloud_get**](docs/PrivateCloudApi.md#private_cloud_get) | **GET** /PrivateCloud | 
-*PrivateCloudApi* | [**private_cloud_id_locations_name_delete**](docs/PrivateCloudApi.md#private_cloud_id_locations_name_delete) | **DELETE** /PrivateCloud/{Id}/Locations/{Name} | 
-*PrivateCloudApi* | [**private_cloud_id_locations_put**](docs/PrivateCloudApi.md#private_cloud_id_locations_put) | **PUT** /PrivateCloud/{Id}/Locations | 
-*PrivateCloudApi* | [**private_cloud_id_whitelist_post**](docs/PrivateCloudApi.md#private_cloud_id_whitelist_post) | **POST** /PrivateCloud/{Id}/Whitelist | 
-*PrivateCloudApi* | [**private_cloud_locations_get**](docs/PrivateCloudApi.md#private_cloud_locations_get) | **GET** /PrivateCloud/Locations | 
+*PrivateCloudApi* | [**private_cloud_location_delete**](docs/PrivateCloudApi.md#private_cloud_location_delete) | **DELETE** /PrivateCloud/Location | 
+*PrivateCloudApi* | [**private_cloud_location_post**](docs/PrivateCloudApi.md#private_cloud_location_post) | **POST** /PrivateCloud/Location | 
+*PrivateCloudApi* | [**private_cloud_location_put**](docs/PrivateCloudApi.md#private_cloud_location_put) | **PUT** /PrivateCloud/Location | 
 *PrivateCloudApi* | [**private_cloud_post**](docs/PrivateCloudApi.md#private_cloud_post) | **POST** /PrivateCloud | 
 *PrivateCloudApi* | [**private_cloud_put**](docs/PrivateCloudApi.md#private_cloud_put) | **PUT** /PrivateCloud | 
 
 
 ## Documentation For Models
 
- - [LocationCreate](docs/LocationCreate.md)
- - [LocationCreateEnvironmentId](docs/LocationCreateEnvironmentId.md)
- - [LocationCreateEnvironmentIdPrivateCloud](docs/LocationCreateEnvironmentIdPrivateCloud.md)
- - [LocationCreateEnvironmentIdPrivateCloudLocationVPN](docs/LocationCreateEnvironmentIdPrivateCloudLocationVPN.md)
- - [LocationCreateEnvironmentIdPrivateCloudLocationVPNIKEVersion](docs/LocationCreateEnvironmentIdPrivateCloudLocationVPNIKEVersion.md)
- - [LocationUpdate](docs/LocationUpdate.md)
- - [LocationUpdatePrivateCloud](docs/LocationUpdatePrivateCloud.md)
- - [LocationUpdatePrivateCloudLocationVPNs](docs/LocationUpdatePrivateCloudLocationVPNs.md)
+ - [Location](docs/Location.md)
  - [LocationVPN](docs/LocationVPN.md)
  - [PrivateCloud](docs/PrivateCloud.md)
+ - [PrivateCloud2](docs/PrivateCloud2.md)
  - [PrivateCloudBoxwiseVersion](docs/PrivateCloudBoxwiseVersion.md)
  - [PrivateCloudCloudSize](docs/PrivateCloudCloudSize.md)
- - [PrivateCloudCreate](docs/PrivateCloudCreate.md)
- - [PrivateCloudCreateCloudSize](docs/PrivateCloudCreateCloudSize.md)
- - [PrivateCloudCreateSubscription](docs/PrivateCloudCreateSubscription.md)
  - [PrivateCloudDeploymentProfile](docs/PrivateCloudDeploymentProfile.md)
- - [PrivateCloudEnvironmentId](docs/PrivateCloudEnvironmentId.md)
- - [PrivateCloudLocations](docs/PrivateCloudLocations.md)
- - [PrivateCloudLocationsIKEVersion](docs/PrivateCloudLocationsIKEVersion.md)
- - [PrivateCloudPut](docs/PrivateCloudPut.md)
- - [PrivateCloudPutPrivateCloud](docs/PrivateCloudPutPrivateCloud.md)
  - [PrivateCloudSubscription](docs/PrivateCloudSubscription.md)
  - [Subnet](docs/Subnet.md)
- - [WhitelistCreate](docs/WhitelistCreate.md)
 
 
 <a id="documentation-for-authorization"></a>
