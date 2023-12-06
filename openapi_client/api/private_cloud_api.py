@@ -25,7 +25,7 @@ except ImportError:
 
 from pydantic import StrictStr, field_validator
 
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, Dict, List, Optional
 
 from openapi_client.models.location import Location
 from openapi_client.models.private_cloud import PrivateCloud
@@ -103,8 +103,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -171,8 +170,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -239,8 +237,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -375,8 +372,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[PrivateCloud]",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -451,8 +447,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[PrivateCloud]",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -527,8 +522,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[PrivateCloud]",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -669,8 +663,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -741,8 +734,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -813,8 +805,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -950,8 +941,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1022,8 +1012,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1094,8 +1083,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1229,8 +1217,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1301,8 +1288,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1373,8 +1359,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1504,8 +1489,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1572,8 +1556,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1640,8 +1623,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1766,8 +1748,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1834,8 +1815,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1902,8 +1882,7 @@ class PrivateCloudApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "object",
-            '401': None
-            
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
