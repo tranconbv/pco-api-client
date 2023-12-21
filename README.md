@@ -55,10 +55,10 @@ import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://tranconcloud.mendixcloud.com/rest/cloudapi/v1
+# Defining the host is optional and defaults to https://tranconcloud-accp.mendixcloud.com/rest/cloudapi/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://tranconcloud.mendixcloud.com/rest/cloudapi/v1"
+    host = "https://tranconcloud-accp.mendixcloud.com/rest/cloudapi/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -90,7 +90,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://tranconcloud.mendixcloud.com/rest/cloudapi/v1*
+All URIs are relative to *https://tranconcloud-accp.mendixcloud.com/rest/cloudapi/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -107,6 +107,7 @@ Class | Method | HTTP request | Description
 
  - [Location](docs/Location.md)
  - [LocationVPN](docs/LocationVPN.md)
+ - [LocationVPNIKEVersion](docs/LocationVPNIKEVersion.md)
  - [PrivateCloud](docs/PrivateCloud.md)
  - [PrivateCloud2](docs/PrivateCloud2.md)
  - [PrivateCloudBoxwiseVersion](docs/PrivateCloudBoxwiseVersion.md)

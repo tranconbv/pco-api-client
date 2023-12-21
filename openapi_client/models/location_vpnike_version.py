@@ -19,20 +19,19 @@ import json
 
 
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictInt, StrictStr
+from pydantic import BaseModel, StrictStr
 from pydantic import Field
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-class PrivateCloudBoxwiseVersion(BaseModel):
+class LocationVPNIKEVersion(BaseModel):
     """
-    PrivateCloudBoxwiseVersion
+    LocationVPNIKEVersion
     """ # noqa: E501
     version: Optional[StrictStr] = Field(default=None, alias="Version")
-    id: Optional[StrictInt] = Field(default=None, alias="_id")
-    __properties: ClassVar[List[str]] = ["Version", "_id"]
+    __properties: ClassVar[List[str]] = ["Version"]
 
     model_config = {
         "populate_by_name": True,
@@ -52,7 +51,7 @@ class PrivateCloudBoxwiseVersion(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of PrivateCloudBoxwiseVersion from a JSON string"""
+        """Create an instance of LocationVPNIKEVersion from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -75,7 +74,7 @@ class PrivateCloudBoxwiseVersion(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Dict) -> Self:
-        """Create an instance of PrivateCloudBoxwiseVersion from a dict"""
+        """Create an instance of LocationVPNIKEVersion from a dict"""
         if obj is None:
             return None
 
@@ -83,8 +82,7 @@ class PrivateCloudBoxwiseVersion(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "Version": obj.get("Version"),
-            "_id": obj.get("_id")
+            "Version": obj.get("Version")
         })
         return _obj
 

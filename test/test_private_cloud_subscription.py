@@ -36,7 +36,8 @@ class TestPrivateCloudSubscription(unittest.TestCase):
         model = PrivateCloudSubscription()
         if include_optional:
             return PrivateCloudSubscription(
-                subscription_id = 56
+                subscription_id = 56,
+                license_id = 56
             )
         else:
             return PrivateCloudSubscription(

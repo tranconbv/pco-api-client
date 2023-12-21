@@ -8,8 +8,9 @@ Name | Type | Description | Notes
 **location** | **str** |  | [optional] 
 **status** | **str** |  | [optional] 
 **whitelist** | **str** |  | [optional] 
-**ike_version** | [**PrivateCloudBoxwiseVersion**](PrivateCloudBoxwiseVersion.md) |  | [optional] 
+**ike_version** | [**LocationVPNIKEVersion**](LocationVPNIKEVersion.md) |  | [optional] 
 **subnets** | [**List[Subnet]**](Subnet.md) |  | [optional] 
+**peer_ip** | **str** |  | [optional] 
 
 ## Example
 

@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **boxwise_url** | **str** |  | [optional] 
 **github_access_token_url** | **str** |  | [optional] 
 **worker_status** | **str** |  | [optional] 
-**boxwise_version** | [**PrivateCloudBoxwiseVersion**](PrivateCloudBoxwiseVersion.md) |  | [optional] 
+**boxwise_version** | [**LocationVPNIKEVersion**](LocationVPNIKEVersion.md) |  | [optional] 
 **deployment_profile** | [**PrivateCloudDeploymentProfile**](PrivateCloudDeploymentProfile.md) |  | [optional] 
 **cloud_size** | [**PrivateCloudCloudSize**](PrivateCloudCloudSize.md) |  | [optional] 
 **subscription** | [**PrivateCloudSubscription**](PrivateCloudSubscription.md) |  | [optional] 

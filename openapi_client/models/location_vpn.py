@@ -21,7 +21,7 @@ import json
 from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictStr, field_validator
 from pydantic import Field
-from openapi_client.models.private_cloud_boxwise_version import PrivateCloudBoxwiseVersion
+from openapi_client.models.location_vpnike_version import LocationVPNIKEVersion
 from openapi_client.models.subnet import Subnet
 try:
     from typing import Self
@@ -35,9 +35,10 @@ class LocationVPN(BaseModel):
     location: Optional[StrictStr] = Field(default=None, alias="Location")
     status: Optional[StrictStr] = Field(default=None, alias="Status")
     whitelist: Optional[StrictStr] = Field(default=None, alias="Whitelist")
-    ike_version: Optional[PrivateCloudBoxwiseVersion] = Field(default=None, alias="IKE_Version")
+    ike_version: Optional[LocationVPNIKEVersion] = Field(default=None, alias="IKE_Version")
     subnets: Optional[List[Subnet]] = Field(default=None, alias="Subnets")
-    __properties: ClassVar[List[str]] = ["Location", "Status", "Whitelist", "IKE_Version", "Subnets"]
+    peer_ip: Optional[StrictStr] = Field(default=None, alias="Peer_Ip")
+    __properties: ClassVar[List[str]] = ["Location", "Status", "Whitelist", "IKE_Version", "Subnets", "Peer_Ip"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -111,8 +112,9 @@ class LocationVPN(BaseModel):
             "Location": obj.get("Location"),
             "Status": obj.get("Status"),
             "Whitelist": obj.get("Whitelist"),
-            "IKE_Version": PrivateCloudBoxwiseVersion.from_dict(obj.get("IKE_Version")) if obj.get("IKE_Version") is not None else None,
-            "Subnets": [Subnet.from_dict(_item) for _item in obj.get("Subnets")] if obj.get("Subnets") is not None else None
+            "IKE_Version": LocationVPNIKEVersion.from_dict(obj.get("IKE_Version")) if obj.get("IKE_Version") is not None else None,
+            "Subnets": [Subnet.from_dict(_item) for _item in obj.get("Subnets")] if obj.get("Subnets") is not None else None,
+            "Peer_Ip": obj.get("Peer_Ip")
         })
         return _obj
 
