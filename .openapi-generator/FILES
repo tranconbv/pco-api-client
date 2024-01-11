@@ -5,6 +5,7 @@
 README.md
 docs/Location.md
 docs/LocationVPN.md
+docs/LocationVPNIKEVersion.md
 docs/PrivateCloud.md
 docs/PrivateCloud2.md
 docs/PrivateCloudApi.md
@@ -24,6 +25,7 @@ openapi_client/exceptions.py
 openapi_client/models/__init__.py
 openapi_client/models/location.py
 openapi_client/models/location_vpn.py
+openapi_client/models/location_vpnike_version.py
 openapi_client/models/private_cloud.py
 openapi_client/models/private_cloud2.py
 openapi_client/models/private_cloud_boxwise_version.py

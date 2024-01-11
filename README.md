@@ -107,6 +107,7 @@ Class | Method | HTTP request | Description
 
  - [Location](docs/Location.md)
  - [LocationVPN](docs/LocationVPN.md)
+ - [LocationVPNIKEVersion](docs/LocationVPNIKEVersion.md)
  - [PrivateCloud](docs/PrivateCloud.md)
  - [PrivateCloud2](docs/PrivateCloud2.md)
  - [PrivateCloudBoxwiseVersion](docs/PrivateCloudBoxwiseVersion.md)

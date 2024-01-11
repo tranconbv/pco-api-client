@@ -52,14 +52,15 @@ class TestPrivateCloud2(unittest.TestCase):
                 boxwise_url = '',
                 github_access_token_url = '',
                 worker_status = '',
-                boxwise_version = openapi_client.models.private_cloud_boxwise_version.PrivateCloud_BoxwiseVersion(
+                boxwise_version = openapi_client.models.location_vpn_ike_version.Location_VPN_IKE_Version(
                     version = '', ),
                 deployment_profile = openapi_client.models.private_cloud_deployment_profile.PrivateCloud_DeploymentProfile(
                     description = '', ),
                 cloud_size = openapi_client.models.private_cloud_cloud_size.PrivateCloud_CloudSize(
                     code = '', ),
                 subscription = openapi_client.models.private_cloud_subscription.PrivateCloud_Subscription(
-                    subscription_id = 56, )
+                    subscription_id = 56, 
+                    license_id = 56, )
             )
         else:
             return PrivateCloud2(

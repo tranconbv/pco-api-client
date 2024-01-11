@@ -53,25 +53,28 @@ class TestPrivateCloud(unittest.TestCase):
                 github_access_token_url = '',
                 worker_status = '',
                 boxwise_version = openapi_client.models.private_cloud_boxwise_version.PrivateCloud_BoxwiseVersion(
-                    version = '', ),
+                    version = '', 
+                    _id = 56, ),
                 deployment_profile = openapi_client.models.private_cloud_deployment_profile.PrivateCloud_DeploymentProfile(
                     description = '', ),
                 cloud_size = openapi_client.models.private_cloud_cloud_size.PrivateCloud_CloudSize(
                     code = '', ),
                 subscription = openapi_client.models.private_cloud_subscription.PrivateCloud_Subscription(
-                    subscription_id = 56, ),
+                    subscription_id = 56, 
+                    license_id = 56, ),
                 location_vpns = [
                     openapi_client.models.location_vpn.Location_VPN(
                         location = '', 
                         status = 'BlockedForEdit', 
                         whitelist = '', 
-                        ike_version = openapi_client.models.private_cloud_boxwise_version.PrivateCloud_BoxwiseVersion(
+                        ike_version = openapi_client.models.location_vpn_ike_version.Location_VPN_IKE_Version(
                             version = '', ), 
                         subnets = [
                             openapi_client.models.subnet.Subnet(
                                 subnet = '', 
                                 cidr_notation = '', )
-                            ], )
+                            ], 
+                        peer_ip = '', )
                     ],
                 subnets = [
                     openapi_client.models.subnet.Subnet(

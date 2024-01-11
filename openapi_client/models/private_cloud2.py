@@ -21,7 +21,7 @@ import json
 from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictStr, field_validator
 from pydantic import Field
-from openapi_client.models.private_cloud_boxwise_version import PrivateCloudBoxwiseVersion
+from openapi_client.models.location_vpnike_version import LocationVPNIKEVersion
 from openapi_client.models.private_cloud_cloud_size import PrivateCloudCloudSize
 from openapi_client.models.private_cloud_deployment_profile import PrivateCloudDeploymentProfile
 from openapi_client.models.private_cloud_subscription import PrivateCloudSubscription
@@ -50,7 +50,7 @@ class PrivateCloud2(BaseModel):
     boxwise_url: Optional[StrictStr] = Field(default=None, alias="Boxwise_url")
     github_access_token_url: Optional[StrictStr] = Field(default=None, alias="GithubAccessToken_url")
     worker_status: Optional[StrictStr] = Field(default=None, alias="Worker_status")
-    boxwise_version: Optional[PrivateCloudBoxwiseVersion] = Field(default=None, alias="BoxwiseVersion")
+    boxwise_version: Optional[LocationVPNIKEVersion] = Field(default=None, alias="BoxwiseVersion")
     deployment_profile: Optional[PrivateCloudDeploymentProfile] = Field(default=None, alias="DeploymentProfile")
     cloud_size: Optional[PrivateCloudCloudSize] = Field(default=None, alias="CloudSize")
     subscription: Optional[PrivateCloudSubscription] = Field(default=None, alias="Subscription")
@@ -143,7 +143,7 @@ class PrivateCloud2(BaseModel):
             "Boxwise_url": obj.get("Boxwise_url"),
             "GithubAccessToken_url": obj.get("GithubAccessToken_url"),
             "Worker_status": obj.get("Worker_status"),
-            "BoxwiseVersion": PrivateCloudBoxwiseVersion.from_dict(obj.get("BoxwiseVersion")) if obj.get("BoxwiseVersion") is not None else None,
+            "BoxwiseVersion": LocationVPNIKEVersion.from_dict(obj.get("BoxwiseVersion")) if obj.get("BoxwiseVersion") is not None else None,
             "DeploymentProfile": PrivateCloudDeploymentProfile.from_dict(obj.get("DeploymentProfile")) if obj.get("DeploymentProfile") is not None else None,
             "CloudSize": PrivateCloudCloudSize.from_dict(obj.get("CloudSize")) if obj.get("CloudSize") is not None else None,
             "Subscription": PrivateCloudSubscription.from_dict(obj.get("Subscription")) if obj.get("Subscription") is not None else None
