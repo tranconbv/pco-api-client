@@ -1,7 +1,6 @@
 .github/workflows/python.yml
 .gitignore
 .gitlab-ci.yml
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/Location.md
@@ -42,15 +41,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_location.py
-test/test_location_vpn.py
-test/test_location_vpnike_version.py
-test/test_private_cloud.py
-test/test_private_cloud2.py
-test/test_private_cloud_api.py
-test/test_private_cloud_boxwise_version.py
-test/test_private_cloud_cloud_size.py
-test/test_private_cloud_deployment_profile.py
-test/test_private_cloud_subscription.py
-test/test_subnet.py
 tox.ini
