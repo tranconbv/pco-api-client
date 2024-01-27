@@ -38,15 +38,14 @@ class TestLocationVPN(unittest.TestCase):
             return LocationVPN(
                 location = '',
                 status = 'BlockedForEdit',
-                whitelist = '',
                 ike_version = openapi_client.models.location_vpn_ike_version.Location_VPN_IKE_Version(
                     version = '', ),
                 subnets = [
                     openapi_client.models.subnet.Subnet(
-                        subnet = '', 
-                        cidr_notation = '', )
+                        subnet = '', )
                     ],
-                peer_ip = ''
+                peer_ip = '',
+                shared_secret = ''
             )
         else:
             return LocationVPN(

@@ -1,4 +1,4 @@
-# Subnet
+# Subnets
 
 
 ## Properties
@@ -10,19 +10,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.subnet import Subnet
+from openapi_client.models.subnets import Subnets
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of Subnet from a JSON string
-subnet_instance = Subnet.from_json(json)
+# create an instance of Subnets from a JSON string
+subnets_instance = Subnets.from_json(json)
 # print the JSON string representation of the object
-print Subnet.to_json()
+print Subnets.to_json()
 
 # convert the object into a dict
-subnet_dict = subnet_instance.to_dict()
-# create an instance of Subnet from a dict
-subnet_form_dict = subnet.from_dict(subnet_dict)
+subnets_dict = subnets_instance.to_dict()
+# create an instance of Subnets from a dict
+subnets_form_dict = subnets.from_dict(subnets_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

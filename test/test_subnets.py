@@ -15,10 +15,10 @@
 import unittest
 import datetime
 
-from openapi_client.models.location import Location
+from openapi_client.models.subnets import Subnets
 
-class TestLocation(unittest.TestCase):
-    """Location unit test stubs"""
+class TestSubnets(unittest.TestCase):
+    """Subnets unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,34 +26,25 @@ class TestLocation(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> Location:
-        """Test Location
+    def make_instance(self, include_optional) -> Subnets:
+        """Test Subnets
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `Location`
+        # uncomment below to create an instance of `Subnets`
         """
-        model = Location()
+        model = Subnets()
         if include_optional:
-            return Location(
-                location = '',
-                status = 'BlockedForEdit',
-                ike_version = openapi_client.models.location_vpn_ike_version.Location_VPN_IKE_Version(
-                    version = '', ),
-                subnets = [
-                    openapi_client.models.subnets.Subnets(
-                        subnet = '', )
-                    ],
-                peer_ip = '',
-                shared_secret = ''
+            return Subnets(
+                subnet = ''
             )
         else:
-            return Location(
+            return Subnets(
         )
         """
 
-    def testLocation(self):
-        """Test Location"""
+    def testSubnets(self):
+        """Test Subnets"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

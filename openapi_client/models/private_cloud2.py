@@ -25,6 +25,7 @@ from openapi_client.models.location_vpnike_version import LocationVPNIKEVersion
 from openapi_client.models.private_cloud_cloud_size import PrivateCloudCloudSize
 from openapi_client.models.private_cloud_deployment_profile import PrivateCloudDeploymentProfile
 from openapi_client.models.private_cloud_subscription import PrivateCloudSubscription
+from openapi_client.models.subnet import Subnet
 try:
     from typing import Self
 except ImportError:
@@ -54,7 +55,8 @@ class PrivateCloud2(BaseModel):
     deployment_profile: Optional[PrivateCloudDeploymentProfile] = Field(default=None, alias="DeploymentProfile")
     cloud_size: Optional[PrivateCloudCloudSize] = Field(default=None, alias="CloudSize")
     subscription: Optional[PrivateCloudSubscription] = Field(default=None, alias="Subscription")
-    __properties: ClassVar[List[str]] = ["EnvironmentId", "CloudStatus", "VM_Name", "VM_User", "VM_Password", "Database_User", "Database_Password", "SharedSecret", "Public_IP", "Internal_IP", "Subnet", "VPN_Gateway", "Region", "Boxwise_url", "GithubAccessToken_url", "Worker_status", "BoxwiseVersion", "DeploymentProfile", "CloudSize", "Subscription"]
+    subnets: Optional[List[Subnet]] = Field(default=None, alias="Subnets")
+    __properties: ClassVar[List[str]] = ["EnvironmentId", "CloudStatus", "VM_Name", "VM_User", "VM_Password", "Database_User", "Database_Password", "SharedSecret", "Public_IP", "Internal_IP", "Subnet", "VPN_Gateway", "Region", "Boxwise_url", "GithubAccessToken_url", "Worker_status", "BoxwiseVersion", "DeploymentProfile", "CloudSize", "Subscription", "Subnets"]
 
     @field_validator('cloud_status')
     def cloud_status_validate_enum(cls, value):
@@ -115,6 +117,13 @@ class PrivateCloud2(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of subscription
         if self.subscription:
             _dict['Subscription'] = self.subscription.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in subnets (list)
+        _items = []
+        if self.subnets:
+            for _item in self.subnets:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['Subnets'] = _items
         return _dict
 
     @classmethod
@@ -146,7 +155,8 @@ class PrivateCloud2(BaseModel):
             "BoxwiseVersion": LocationVPNIKEVersion.from_dict(obj.get("BoxwiseVersion")) if obj.get("BoxwiseVersion") is not None else None,
             "DeploymentProfile": PrivateCloudDeploymentProfile.from_dict(obj.get("DeploymentProfile")) if obj.get("DeploymentProfile") is not None else None,
             "CloudSize": PrivateCloudCloudSize.from_dict(obj.get("CloudSize")) if obj.get("CloudSize") is not None else None,
-            "Subscription": PrivateCloudSubscription.from_dict(obj.get("Subscription")) if obj.get("Subscription") is not None else None
+            "Subscription": PrivateCloudSubscription.from_dict(obj.get("Subscription")) if obj.get("Subscription") is not None else None,
+            "Subnets": [Subnet.from_dict(_item) for _item in obj.get("Subnets")] if obj.get("Subnets") is not None else None
         })
         return _obj
 

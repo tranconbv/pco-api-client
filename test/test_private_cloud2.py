@@ -60,7 +60,11 @@ class TestPrivateCloud2(unittest.TestCase):
                     code = '', ),
                 subscription = openapi_client.models.private_cloud_subscription.PrivateCloud_Subscription(
                     subscription_id = 56, 
-                    license_id = 56, )
+                    license_id = 56, ),
+                subnets = [
+                    openapi_client.models.subnet.Subnet(
+                        subnet = '', )
+                    ]
             )
         else:
             return PrivateCloud2(

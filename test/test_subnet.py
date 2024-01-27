@@ -36,8 +36,7 @@ class TestSubnet(unittest.TestCase):
         model = Subnet()
         if include_optional:
             return Subnet(
-                subnet = '',
-                cidr_notation = ''
+                subnet = ''
             )
         else:
             return Subnet(

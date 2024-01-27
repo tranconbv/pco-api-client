@@ -58,8 +58,7 @@ class PrivateCloud(BaseModel):
     subscription: Optional[PrivateCloudSubscription] = Field(default=None, alias="Subscription")
     location_vpns: Optional[List[LocationVPN]] = Field(default=None, alias="Location_VPNs")
     subnets: Optional[List[Subnet]] = Field(default=None, alias="Subnets")
-    whitelist: Optional[StrictStr] = Field(default=None, alias="Whitelist")
-    __properties: ClassVar[List[str]] = ["EnvironmentId", "CloudStatus", "VM_Name", "VM_User", "VM_Password", "Database_User", "Database_Password", "SharedSecret", "Public_IP", "Internal_IP", "Subnet", "VPN_Gateway", "Region", "Boxwise_url", "GithubAccessToken_url", "Worker_status", "BoxwiseVersion", "DeploymentProfile", "CloudSize", "Subscription", "Location_VPNs", "Subnets", "Whitelist"]
+    __properties: ClassVar[List[str]] = ["EnvironmentId", "CloudStatus", "VM_Name", "VM_User", "VM_Password", "Database_User", "Database_Password", "SharedSecret", "Public_IP", "Internal_IP", "Subnet", "VPN_Gateway", "Region", "Boxwise_url", "GithubAccessToken_url", "Worker_status", "BoxwiseVersion", "DeploymentProfile", "CloudSize", "Subscription", "Location_VPNs", "Subnets"]
 
     @field_validator('cloud_status')
     def cloud_status_validate_enum(cls, value):
@@ -167,8 +166,7 @@ class PrivateCloud(BaseModel):
             "CloudSize": PrivateCloudCloudSize.from_dict(obj.get("CloudSize")) if obj.get("CloudSize") is not None else None,
             "Subscription": PrivateCloudSubscription.from_dict(obj.get("Subscription")) if obj.get("Subscription") is not None else None,
             "Location_VPNs": [LocationVPN.from_dict(_item) for _item in obj.get("Location_VPNs")] if obj.get("Location_VPNs") is not None else None,
-            "Subnets": [Subnet.from_dict(_item) for _item in obj.get("Subnets")] if obj.get("Subnets") is not None else None,
-            "Whitelist": obj.get("Whitelist")
+            "Subnets": [Subnet.from_dict(_item) for _item in obj.get("Subnets")] if obj.get("Subnets") is not None else None
         })
         return _obj
 

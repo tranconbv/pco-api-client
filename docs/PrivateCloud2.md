@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **deployment_profile** | [**PrivateCloudDeploymentProfile**](PrivateCloudDeploymentProfile.md) |  | [optional] 
 **cloud_size** | [**PrivateCloudCloudSize**](PrivateCloudCloudSize.md) |  | [optional] 
 **subscription** | [**PrivateCloudSubscription**](PrivateCloudSubscription.md) |  | [optional] 
+**subnets** | [**List[Subnet]**](Subnet.md) |  | [optional] 
 
 ## Example
 

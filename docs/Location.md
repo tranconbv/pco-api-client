@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **location** | **str** |  | [optional] 
 **status** | **str** |  | [optional] 
-**whitelist** | **str** |  | [optional] 
 **ike_version** | [**LocationVPNIKEVersion**](LocationVPNIKEVersion.md) |  | [optional] 
-**subnets** | [**List[Subnet]**](Subnet.md) |  | [optional] 
+**subnets** | [**List[Subnets]**](Subnets.md) |  | [optional] 
 **peer_ip** | **str** |  | [optional] 
+**shared_secret** | **str** |  | [optional] 
 
 ## Example
 

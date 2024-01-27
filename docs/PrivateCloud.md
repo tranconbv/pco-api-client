@@ -27,7 +27,6 @@ Name | Type | Description | Notes
 **subscription** | [**PrivateCloudSubscription**](PrivateCloudSubscription.md) |  | [optional] 
 **location_vpns** | [**List[LocationVPN]**](LocationVPN.md) |  | [optional] 
 **subnets** | [**List[Subnet]**](Subnet.md) |  | [optional] 
-**whitelist** | **str** |  | [optional] 
 
 ## Example
 
