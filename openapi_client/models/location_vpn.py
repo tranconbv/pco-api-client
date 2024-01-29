@@ -22,7 +22,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictStr, field_validator
 from pydantic import Field
 from openapi_client.models.location_vpnike_version import LocationVPNIKEVersion
-from openapi_client.models.subnet import Subnet
+from openapi_client.models.subnets import Subnets
 try:
     from typing import Self
 except ImportError:
@@ -35,7 +35,7 @@ class LocationVPN(BaseModel):
     location: Optional[StrictStr] = Field(default=None, alias="Location")
     status: Optional[StrictStr] = Field(default=None, alias="Status")
     ike_version: Optional[LocationVPNIKEVersion] = Field(default=None, alias="IKE_Version")
-    subnets: Optional[List[Subnet]] = Field(default=None, alias="Subnets")
+    subnets: Optional[List[Subnets]] = Field(default=None, alias="Subnets")
     peer_ip: Optional[StrictStr] = Field(default=None, alias="Peer_Ip")
     shared_secret: Optional[StrictStr] = Field(default=None, alias="SharedSecret")
     __properties: ClassVar[List[str]] = ["Location", "Status", "IKE_Version", "Subnets", "Peer_Ip", "SharedSecret"]
@@ -112,7 +112,7 @@ class LocationVPN(BaseModel):
             "Location": obj.get("Location"),
             "Status": obj.get("Status"),
             "IKE_Version": LocationVPNIKEVersion.from_dict(obj.get("IKE_Version")) if obj.get("IKE_Version") is not None else None,
-            "Subnets": [Subnet.from_dict(_item) for _item in obj.get("Subnets")] if obj.get("Subnets") is not None else None,
+            "Subnets": [Subnets.from_dict(_item) for _item in obj.get("Subnets")] if obj.get("Subnets") is not None else None,
             "Peer_Ip": obj.get("Peer_Ip"),
             "SharedSecret": obj.get("SharedSecret")
         })

@@ -23,5 +23,5 @@ from openapi_client.models.private_cloud_boxwise_version import PrivateCloudBoxw
 from openapi_client.models.private_cloud_cloud_size import PrivateCloudCloudSize
 from openapi_client.models.private_cloud_deployment_profile import PrivateCloudDeploymentProfile
 from openapi_client.models.private_cloud_subscription import PrivateCloudSubscription
-from openapi_client.models.subnet import Subnet
 from openapi_client.models.subnets import Subnets
+from openapi_client.models.whitelisted_subnets import WhitelistedSubnets

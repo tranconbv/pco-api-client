@@ -26,7 +26,7 @@ from openapi_client.models.private_cloud_boxwise_version import PrivateCloudBoxw
 from openapi_client.models.private_cloud_cloud_size import PrivateCloudCloudSize
 from openapi_client.models.private_cloud_deployment_profile import PrivateCloudDeploymentProfile
 from openapi_client.models.private_cloud_subscription import PrivateCloudSubscription
-from openapi_client.models.subnet import Subnet
+from openapi_client.models.whitelisted_subnets import WhitelistedSubnets
 try:
     from typing import Self
 except ImportError:
@@ -57,8 +57,8 @@ class PrivateCloud(BaseModel):
     cloud_size: Optional[PrivateCloudCloudSize] = Field(default=None, alias="CloudSize")
     subscription: Optional[PrivateCloudSubscription] = Field(default=None, alias="Subscription")
     location_vpns: Optional[List[LocationVPN]] = Field(default=None, alias="Location_VPNs")
-    subnets: Optional[List[Subnet]] = Field(default=None, alias="Subnets")
-    __properties: ClassVar[List[str]] = ["EnvironmentId", "CloudStatus", "VM_Name", "VM_User", "VM_Password", "Database_User", "Database_Password", "SharedSecret", "Public_IP", "Internal_IP", "Subnet", "VPN_Gateway", "Region", "Boxwise_url", "GithubAccessToken_url", "Worker_status", "BoxwiseVersion", "DeploymentProfile", "CloudSize", "Subscription", "Location_VPNs", "Subnets"]
+    whitelisted_subnets: Optional[List[WhitelistedSubnets]] = Field(default=None, alias="WhitelistedSubnets")
+    __properties: ClassVar[List[str]] = ["EnvironmentId", "CloudStatus", "VM_Name", "VM_User", "VM_Password", "Database_User", "Database_Password", "SharedSecret", "Public_IP", "Internal_IP", "Subnet", "VPN_Gateway", "Region", "Boxwise_url", "GithubAccessToken_url", "Worker_status", "BoxwiseVersion", "DeploymentProfile", "CloudSize", "Subscription", "Location_VPNs", "WhitelistedSubnets"]
 
     @field_validator('cloud_status')
     def cloud_status_validate_enum(cls, value):
@@ -126,13 +126,13 @@ class PrivateCloud(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['Location_VPNs'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in subnets (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in whitelisted_subnets (list)
         _items = []
-        if self.subnets:
-            for _item in self.subnets:
+        if self.whitelisted_subnets:
+            for _item in self.whitelisted_subnets:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['Subnets'] = _items
+            _dict['WhitelistedSubnets'] = _items
         return _dict
 
     @classmethod
@@ -166,7 +166,7 @@ class PrivateCloud(BaseModel):
             "CloudSize": PrivateCloudCloudSize.from_dict(obj.get("CloudSize")) if obj.get("CloudSize") is not None else None,
             "Subscription": PrivateCloudSubscription.from_dict(obj.get("Subscription")) if obj.get("Subscription") is not None else None,
             "Location_VPNs": [LocationVPN.from_dict(_item) for _item in obj.get("Location_VPNs")] if obj.get("Location_VPNs") is not None else None,
-            "Subnets": [Subnet.from_dict(_item) for _item in obj.get("Subnets")] if obj.get("Subnets") is not None else None
+            "WhitelistedSubnets": [WhitelistedSubnets.from_dict(_item) for _item in obj.get("WhitelistedSubnets")] if obj.get("WhitelistedSubnets") is not None else None
         })
         return _obj
 

@@ -114,8 +114,8 @@ Class | Method | HTTP request | Description
  - [PrivateCloudCloudSize](docs/PrivateCloudCloudSize.md)
  - [PrivateCloudDeploymentProfile](docs/PrivateCloudDeploymentProfile.md)
  - [PrivateCloudSubscription](docs/PrivateCloudSubscription.md)
- - [Subnet](docs/Subnet.md)
  - [Subnets](docs/Subnets.md)
+ - [WhitelistedSubnets](docs/WhitelistedSubnets.md)
 
 
 <a id="documentation-for-authorization"></a>
