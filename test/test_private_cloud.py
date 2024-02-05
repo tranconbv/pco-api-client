@@ -66,22 +66,19 @@ class TestPrivateCloud(unittest.TestCase):
                     openapi_client.models.location_vpn.Location_VPN(
                         location = '', 
                         status = 'BlockedForEdit', 
-                        whitelist = '', 
                         ike_version = openapi_client.models.location_vpn_ike_version.Location_VPN_IKE_Version(
                             version = '', ), 
                         subnets = [
                             openapi_client.models.subnet.Subnet(
-                                subnet = '', 
-                                cidr_notation = '', )
+                                subnet = '', )
                             ], 
-                        peer_ip = '', )
+                        peer_ip = '', 
+                        shared_secret = '', )
                     ],
                 subnets = [
                     openapi_client.models.subnet.Subnet(
-                        subnet = '', 
-                        cidr_notation = '', )
-                    ],
-                whitelist = ''
+                        subnet = '', )
+                    ]
             )
         else:
             return PrivateCloud(

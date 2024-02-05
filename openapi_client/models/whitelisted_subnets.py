@@ -26,9 +26,9 @@ try:
 except ImportError:
     from typing_extensions import Self
 
-class Subnet(BaseModel):
+class WhitelistedSubnets(BaseModel):
     """
-    Subnet
+    WhitelistedSubnets
     """ # noqa: E501
     subnet: Optional[StrictStr] = Field(default=None, alias="Subnet")
     __properties: ClassVar[List[str]] = ["Subnet"]
@@ -51,7 +51,7 @@ class Subnet(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of Subnet from a JSON string"""
+        """Create an instance of WhitelistedSubnets from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,7 +74,7 @@ class Subnet(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Dict) -> Self:
-        """Create an instance of Subnet from a dict"""
+        """Create an instance of WhitelistedSubnets from a dict"""
         if obj is None:
             return None
 

@@ -13,7 +13,8 @@ docs/PrivateCloudBoxwiseVersion.md
 docs/PrivateCloudCloudSize.md
 docs/PrivateCloudDeploymentProfile.md
 docs/PrivateCloudSubscription.md
-docs/Subnet.md
+docs/Subnets.md
+docs/WhitelistedSubnets.md
 git_push.sh
 openapi_client/__init__.py
 openapi_client/api/__init__.py
@@ -32,7 +33,8 @@ openapi_client/models/private_cloud_boxwise_version.py
 openapi_client/models/private_cloud_cloud_size.py
 openapi_client/models/private_cloud_deployment_profile.py
 openapi_client/models/private_cloud_subscription.py
-openapi_client/models/subnet.py
+openapi_client/models/subnets.py
+openapi_client/models/whitelisted_subnets.py
 openapi_client/py.typed
 openapi_client/rest.py
 pyproject.toml

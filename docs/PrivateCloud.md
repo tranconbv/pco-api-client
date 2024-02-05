@@ -26,8 +26,7 @@ Name | Type | Description | Notes
 **cloud_size** | [**PrivateCloudCloudSize**](PrivateCloudCloudSize.md) |  | [optional] 
 **subscription** | [**PrivateCloudSubscription**](PrivateCloudSubscription.md) |  | [optional] 
 **location_vpns** | [**List[LocationVPN]**](LocationVPN.md) |  | [optional] 
-**subnets** | [**List[Subnet]**](Subnet.md) |  | [optional] 
-**whitelist** | **str** |  | [optional] 
+**whitelisted_subnets** | [**List[WhitelistedSubnets]**](WhitelistedSubnets.md) |  | [optional] 
 
 ## Example
 
