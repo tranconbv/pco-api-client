@@ -22,12 +22,13 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PrivateCloudCloudSize(BaseModel):
+class KeyValue(BaseModel):
     """
-    PrivateCloudCloudSize
+    KeyValue
     """ # noqa: E501
-    code: Optional[StrictStr] = Field(default=None, alias="Code")
-    __properties: ClassVar[List[str]] = ["Code"]
+    key: Optional[StrictStr] = Field(default=None, alias="Key")
+    value: Optional[StrictStr] = Field(default=None, alias="Value")
+    __properties: ClassVar[List[str]] = ["Key", "Value"]
 
     model_config = {
         "populate_by_name": True,
@@ -47,7 +48,7 @@ class PrivateCloudCloudSize(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PrivateCloudCloudSize from a JSON string"""
+        """Create an instance of KeyValue from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,7 +73,7 @@ class PrivateCloudCloudSize(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PrivateCloudCloudSize from a dict"""
+        """Create an instance of KeyValue from a dict"""
         if obj is None:
             return None
 
@@ -80,7 +81,8 @@ class PrivateCloudCloudSize(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "Code": obj.get("Code")
+            "Key": obj.get("Key"),
+            "Value": obj.get("Value")
         })
         return _obj
 

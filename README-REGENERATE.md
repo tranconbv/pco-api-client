@@ -5,8 +5,8 @@ This package was generated using the command below. To regenerate it use the sam
 *Production*
 ```shell
 # production
-docker run --rm -v "C:/Dev/pco-api-client/:/local" openapitools/openapi-generator-cli generate `
-  -i https://tranconcloud.mendixcloud.com/rest-doc/rest/cloudapi/v1/swagger.json `
+docker run --rm -v "D:/pco-api-client/:/local" openapitools/openapi-generator-cli:v7.3.0 generate `
+  -i https://boxwise.mendixcloud.com/rest-doc/rest/cloudapi/v1/openapi.json `
   -g python `
   -o /local
 ```
@@ -14,8 +14,8 @@ docker run --rm -v "C:/Dev/pco-api-client/:/local" openapitools/openapi-generato
 
 *Accept*
 ```shell
-docker run --rm -v "C:/Dev/pco-api-client/:/local" openapitools/openapi-generator-cli generate `
-  -i https://tranconcloud-accp.mendixcloud.com/rest-doc/rest/cloudapi/v1/swagger.json `
+docker run --rm -v "D:/pco-api-client/:/local" openapitools/openapi-generator-cli:v7.3.0 generate `
+  -i https://boxwise-accp.mendixcloud.com/rest-doc/rest/cloudapi/v1/openapi.json `
   -g python `
   -o /local 
 ```

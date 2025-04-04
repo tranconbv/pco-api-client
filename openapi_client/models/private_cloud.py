@@ -17,20 +17,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr, field_validator
-from pydantic import Field
+from openapi_client.models.key_value import KeyValue
 from openapi_client.models.location_vpn import LocationVPN
 from openapi_client.models.private_cloud_boxwise_version import PrivateCloudBoxwiseVersion
 from openapi_client.models.private_cloud_cloud_size import PrivateCloudCloudSize
 from openapi_client.models.private_cloud_deployment_profile import PrivateCloudDeploymentProfile
 from openapi_client.models.private_cloud_subscription import PrivateCloudSubscription
 from openapi_client.models.whitelisted_subnets import WhitelistedSubnets
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class PrivateCloud(BaseModel):
     """
@@ -58,7 +55,9 @@ class PrivateCloud(BaseModel):
     subscription: Optional[PrivateCloudSubscription] = Field(default=None, alias="Subscription")
     location_vpns: Optional[List[LocationVPN]] = Field(default=None, alias="Location_VPNs")
     whitelisted_subnets: Optional[List[WhitelistedSubnets]] = Field(default=None, alias="WhitelistedSubnets")
-    __properties: ClassVar[List[str]] = ["EnvironmentId", "CloudStatus", "VM_Name", "VM_User", "VM_Password", "Database_User", "Database_Password", "SharedSecret", "Public_IP", "Internal_IP", "Subnet", "VPN_Gateway", "Region", "Boxwise_url", "GithubAccessToken_url", "Worker_status", "BoxwiseVersion", "DeploymentProfile", "CloudSize", "Subscription", "Location_VPNs", "WhitelistedSubnets"]
+    via_vpn: Optional[StrictBool] = Field(default=False, alias="ViaVPN")
+    key_values: Optional[List[KeyValue]] = Field(default=None, alias="KeyValues")
+    __properties: ClassVar[List[str]] = ["EnvironmentId", "CloudStatus", "VM_Name", "VM_User", "VM_Password", "Database_User", "Database_Password", "SharedSecret", "Public_IP", "Internal_IP", "Subnet", "VPN_Gateway", "Region", "Boxwise_url", "GithubAccessToken_url", "Worker_status", "BoxwiseVersion", "DeploymentProfile", "CloudSize", "Subscription", "Location_VPNs", "WhitelistedSubnets", "ViaVPN", "KeyValues"]
 
     @field_validator('cloud_status')
     def cloud_status_validate_enum(cls, value):
@@ -66,7 +65,7 @@ class PrivateCloud(BaseModel):
         if value is None:
             return value
 
-        if value not in ('BlockedForEdit', 'WaitForCreation', 'InProgress', 'Active', 'Error', 'WaitForDeletion', 'Deleted', 'WaitForEdit'):
+        if value not in set(['BlockedForEdit', 'WaitForCreation', 'InProgress', 'Active', 'Error', 'WaitForDeletion', 'Deleted', 'WaitForEdit']):
             raise ValueError("must be one of enum values ('BlockedForEdit', 'WaitForCreation', 'InProgress', 'Active', 'Error', 'WaitForDeletion', 'Deleted', 'WaitForEdit')")
         return value
 
@@ -87,7 +86,7 @@ class PrivateCloud(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of PrivateCloud from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -101,10 +100,12 @@ class PrivateCloud(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of boxwise_version
@@ -133,10 +134,17 @@ class PrivateCloud(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['WhitelistedSubnets'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in key_values (list)
+        _items = []
+        if self.key_values:
+            for _item in self.key_values:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['KeyValues'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of PrivateCloud from a dict"""
         if obj is None:
             return None
@@ -161,12 +169,14 @@ class PrivateCloud(BaseModel):
             "Boxwise_url": obj.get("Boxwise_url"),
             "GithubAccessToken_url": obj.get("GithubAccessToken_url"),
             "Worker_status": obj.get("Worker_status"),
-            "BoxwiseVersion": PrivateCloudBoxwiseVersion.from_dict(obj.get("BoxwiseVersion")) if obj.get("BoxwiseVersion") is not None else None,
-            "DeploymentProfile": PrivateCloudDeploymentProfile.from_dict(obj.get("DeploymentProfile")) if obj.get("DeploymentProfile") is not None else None,
-            "CloudSize": PrivateCloudCloudSize.from_dict(obj.get("CloudSize")) if obj.get("CloudSize") is not None else None,
-            "Subscription": PrivateCloudSubscription.from_dict(obj.get("Subscription")) if obj.get("Subscription") is not None else None,
-            "Location_VPNs": [LocationVPN.from_dict(_item) for _item in obj.get("Location_VPNs")] if obj.get("Location_VPNs") is not None else None,
-            "WhitelistedSubnets": [WhitelistedSubnets.from_dict(_item) for _item in obj.get("WhitelistedSubnets")] if obj.get("WhitelistedSubnets") is not None else None
+            "BoxwiseVersion": PrivateCloudBoxwiseVersion.from_dict(obj["BoxwiseVersion"]) if obj.get("BoxwiseVersion") is not None else None,
+            "DeploymentProfile": PrivateCloudDeploymentProfile.from_dict(obj["DeploymentProfile"]) if obj.get("DeploymentProfile") is not None else None,
+            "CloudSize": PrivateCloudCloudSize.from_dict(obj["CloudSize"]) if obj.get("CloudSize") is not None else None,
+            "Subscription": PrivateCloudSubscription.from_dict(obj["Subscription"]) if obj.get("Subscription") is not None else None,
+            "Location_VPNs": [LocationVPN.from_dict(_item) for _item in obj["Location_VPNs"]] if obj.get("Location_VPNs") is not None else None,
+            "WhitelistedSubnets": [WhitelistedSubnets.from_dict(_item) for _item in obj["WhitelistedSubnets"]] if obj.get("WhitelistedSubnets") is not None else None,
+            "ViaVPN": obj.get("ViaVPN") if obj.get("ViaVPN") is not None else False,
+            "KeyValues": [KeyValue.from_dict(_item) for _item in obj["KeyValues"]] if obj.get("KeyValues") is not None else None
         })
         return _obj
 

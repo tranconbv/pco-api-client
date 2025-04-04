@@ -3,11 +3,11 @@
 .gitlab-ci.yml
 .travis.yml
 README.md
+docs/KeyValue.md
 docs/Location.md
 docs/LocationVPN.md
 docs/LocationVPNIKEVersion.md
 docs/PrivateCloud.md
-docs/PrivateCloud2.md
 docs/PrivateCloudApi.md
 docs/PrivateCloudBoxwiseVersion.md
 docs/PrivateCloudCloudSize.md
@@ -24,11 +24,11 @@ openapi_client/api_response.py
 openapi_client/configuration.py
 openapi_client/exceptions.py
 openapi_client/models/__init__.py
+openapi_client/models/key_value.py
 openapi_client/models/location.py
 openapi_client/models/location_vpn.py
 openapi_client/models/location_vpnike_version.py
 openapi_client/models/private_cloud.py
-openapi_client/models/private_cloud2.py
 openapi_client/models/private_cloud_boxwise_version.py
 openapi_client/models/private_cloud_cloud_size.py
 openapi_client/models/private_cloud_deployment_profile.py
@@ -43,4 +43,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_key_value.py
 tox.ini
