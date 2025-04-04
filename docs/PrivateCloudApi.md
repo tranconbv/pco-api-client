@@ -1,6 +1,6 @@
 # openapi_client.PrivateCloudApi
 
-All URIs are relative to *https://tranconcloud.mendixcloud.com/rest/cloudapi/v1*
+All URIs are relative to *https://boxwise-accp.mendixcloud.com/rest/cloudapi/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **private_cloud_delete**
-> object private_cloud_delete(environment_id=environment_id)
+> private_cloud_delete(environment_id=environment_id)
 
 
 
@@ -23,16 +23,14 @@ Method | HTTP request | Description
 * Basic Authentication (basicAuth):
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://tranconcloud.mendixcloud.com/rest/cloudapi/v1
+# Defining the host is optional and defaults to https://boxwise-accp.mendixcloud.com/rest/cloudapi/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://tranconcloud.mendixcloud.com/rest/cloudapi/v1"
+    host = "https://boxwise-accp.mendixcloud.com/rest/cloudapi/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -53,9 +51,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     environment_id = 'environment_id_example' # str |  (optional)
 
     try:
-        api_response = api_instance.private_cloud_delete(environment_id=environment_id)
-        print("The response of PrivateCloudApi->private_cloud_delete:\n")
-        pprint(api_response)
+        api_instance.private_cloud_delete(environment_id=environment_id)
     except Exception as e:
         print("Exception when calling PrivateCloudApi->private_cloud_delete: %s\n" % e)
 ```
@@ -71,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+void (empty response body)
 
 ### Authorization
 
@@ -80,7 +76,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: */*
+ - **Accept**: Not defined
 
 ### HTTP response details
 
@@ -101,17 +97,15 @@ Name | Type | Description  | Notes
 * Basic Authentication (basicAuth):
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.private_cloud import PrivateCloud
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://tranconcloud.mendixcloud.com/rest/cloudapi/v1
+# Defining the host is optional and defaults to https://boxwise-accp.mendixcloud.com/rest/cloudapi/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://tranconcloud.mendixcloud.com/rest/cloudapi/v1"
+    host = "https://boxwise-accp.mendixcloud.com/rest/cloudapi/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -163,7 +157,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: */*
+ - **Accept**: application/xml, application/json
 
 ### HTTP response details
 
@@ -175,7 +169,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **private_cloud_location_delete**
-> object private_cloud_location_delete(environment_id=environment_id, location=location)
+> private_cloud_location_delete(environment_id=environment_id, location=location)
 
 
 
@@ -184,16 +178,14 @@ Name | Type | Description  | Notes
 * Basic Authentication (basicAuth):
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://tranconcloud.mendixcloud.com/rest/cloudapi/v1
+# Defining the host is optional and defaults to https://boxwise-accp.mendixcloud.com/rest/cloudapi/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://tranconcloud.mendixcloud.com/rest/cloudapi/v1"
+    host = "https://boxwise-accp.mendixcloud.com/rest/cloudapi/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -215,9 +207,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     location = 'location_example' # str |  (optional)
 
     try:
-        api_response = api_instance.private_cloud_location_delete(environment_id=environment_id, location=location)
-        print("The response of PrivateCloudApi->private_cloud_location_delete:\n")
-        pprint(api_response)
+        api_instance.private_cloud_location_delete(environment_id=environment_id, location=location)
     except Exception as e:
         print("Exception when calling PrivateCloudApi->private_cloud_location_delete: %s\n" % e)
 ```
@@ -234,7 +224,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+void (empty response body)
 
 ### Authorization
 
@@ -243,7 +233,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: */*
+ - **Accept**: Not defined
 
 ### HTTP response details
 
@@ -255,7 +245,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **private_cloud_location_post**
-> object private_cloud_location_post(environment_id=environment_id, location=location)
+> private_cloud_location_post(environment_id=environment_id, location=location)
 
 
 
@@ -264,17 +254,15 @@ Name | Type | Description  | Notes
 * Basic Authentication (basicAuth):
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.location import Location
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://tranconcloud.mendixcloud.com/rest/cloudapi/v1
+# Defining the host is optional and defaults to https://boxwise-accp.mendixcloud.com/rest/cloudapi/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://tranconcloud.mendixcloud.com/rest/cloudapi/v1"
+    host = "https://boxwise-accp.mendixcloud.com/rest/cloudapi/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -296,9 +284,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     location = openapi_client.Location() # Location |  (optional)
 
     try:
-        api_response = api_instance.private_cloud_location_post(environment_id=environment_id, location=location)
-        print("The response of PrivateCloudApi->private_cloud_location_post:\n")
-        pprint(api_response)
+        api_instance.private_cloud_location_post(environment_id=environment_id, location=location)
     except Exception as e:
         print("Exception when calling PrivateCloudApi->private_cloud_location_post: %s\n" % e)
 ```
@@ -315,7 +301,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+void (empty response body)
 
 ### Authorization
 
@@ -323,8 +309,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
+ - **Content-Type**: application/xml, application/json
+ - **Accept**: Not defined
 
 ### HTTP response details
 
@@ -336,7 +322,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **private_cloud_location_put**
-> object private_cloud_location_put(environment_id=environment_id, location=location)
+> private_cloud_location_put(environment_id=environment_id, location=location)
 
 
 
@@ -345,17 +331,15 @@ Name | Type | Description  | Notes
 * Basic Authentication (basicAuth):
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.location import Location
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://tranconcloud.mendixcloud.com/rest/cloudapi/v1
+# Defining the host is optional and defaults to https://boxwise-accp.mendixcloud.com/rest/cloudapi/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://tranconcloud.mendixcloud.com/rest/cloudapi/v1"
+    host = "https://boxwise-accp.mendixcloud.com/rest/cloudapi/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -377,9 +361,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     location = openapi_client.Location() # Location |  (optional)
 
     try:
-        api_response = api_instance.private_cloud_location_put(environment_id=environment_id, location=location)
-        print("The response of PrivateCloudApi->private_cloud_location_put:\n")
-        pprint(api_response)
+        api_instance.private_cloud_location_put(environment_id=environment_id, location=location)
     except Exception as e:
         print("Exception when calling PrivateCloudApi->private_cloud_location_put: %s\n" % e)
 ```
@@ -396,7 +378,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+void (empty response body)
 
 ### Authorization
 
@@ -404,8 +386,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
+ - **Content-Type**: application/xml, application/json
+ - **Accept**: Not defined
 
 ### HTTP response details
 
@@ -417,7 +399,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **private_cloud_post**
-> object private_cloud_post(private_cloud=private_cloud)
+> private_cloud_post(private_cloud=private_cloud)
 
 
 
@@ -426,17 +408,15 @@ Name | Type | Description  | Notes
 * Basic Authentication (basicAuth):
 
 ```python
-import time
-import os
 import openapi_client
-from openapi_client.models.private_cloud2 import PrivateCloud2
+from openapi_client.models.private_cloud import PrivateCloud
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://tranconcloud.mendixcloud.com/rest/cloudapi/v1
+# Defining the host is optional and defaults to https://boxwise-accp.mendixcloud.com/rest/cloudapi/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://tranconcloud.mendixcloud.com/rest/cloudapi/v1"
+    host = "https://boxwise-accp.mendixcloud.com/rest/cloudapi/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -454,12 +434,10 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.PrivateCloudApi(api_client)
-    private_cloud = openapi_client.PrivateCloud2() # PrivateCloud2 |  (optional)
+    private_cloud = openapi_client.PrivateCloud() # PrivateCloud |  (optional)
 
     try:
-        api_response = api_instance.private_cloud_post(private_cloud=private_cloud)
-        print("The response of PrivateCloudApi->private_cloud_post:\n")
-        pprint(api_response)
+        api_instance.private_cloud_post(private_cloud=private_cloud)
     except Exception as e:
         print("Exception when calling PrivateCloudApi->private_cloud_post: %s\n" % e)
 ```
@@ -471,11 +449,11 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **private_cloud** | [**PrivateCloud2**](PrivateCloud2.md)|  | [optional] 
+ **private_cloud** | [**PrivateCloud**](PrivateCloud.md)|  | [optional] 
 
 ### Return type
 
-**object**
+void (empty response body)
 
 ### Authorization
 
@@ -483,8 +461,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
+ - **Content-Type**: application/xml, application/json
+ - **Accept**: Not defined
 
 ### HTTP response details
 
@@ -496,7 +474,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **private_cloud_put**
-> object private_cloud_put(private_cloud=private_cloud)
+> private_cloud_put(private_cloud=private_cloud)
 
 
 
@@ -505,17 +483,15 @@ Name | Type | Description  | Notes
 * Basic Authentication (basicAuth):
 
 ```python
-import time
-import os
 import openapi_client
-from openapi_client.models.private_cloud2 import PrivateCloud2
+from openapi_client.models.private_cloud import PrivateCloud
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://tranconcloud.mendixcloud.com/rest/cloudapi/v1
+# Defining the host is optional and defaults to https://boxwise-accp.mendixcloud.com/rest/cloudapi/v1
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://tranconcloud.mendixcloud.com/rest/cloudapi/v1"
+    host = "https://boxwise-accp.mendixcloud.com/rest/cloudapi/v1"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -533,12 +509,10 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.PrivateCloudApi(api_client)
-    private_cloud = openapi_client.PrivateCloud2() # PrivateCloud2 |  (optional)
+    private_cloud = openapi_client.PrivateCloud() # PrivateCloud |  (optional)
 
     try:
-        api_response = api_instance.private_cloud_put(private_cloud=private_cloud)
-        print("The response of PrivateCloudApi->private_cloud_put:\n")
-        pprint(api_response)
+        api_instance.private_cloud_put(private_cloud=private_cloud)
     except Exception as e:
         print("Exception when calling PrivateCloudApi->private_cloud_put: %s\n" % e)
 ```
@@ -550,11 +524,11 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **private_cloud** | [**PrivateCloud2**](PrivateCloud2.md)|  | [optional] 
+ **private_cloud** | [**PrivateCloud**](PrivateCloud.md)|  | [optional] 
 
 ### Return type
 
-**object**
+void (empty response body)
 
 ### Authorization
 
@@ -562,8 +536,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
+ - **Content-Type**: application/xml, application/json
+ - **Accept**: Not defined
 
 ### HTTP response details
 

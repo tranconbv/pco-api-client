@@ -17,16 +17,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr, field_validator
-from pydantic import Field
 from openapi_client.models.location_vpnike_version import LocationVPNIKEVersion
 from openapi_client.models.subnets import Subnets
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class LocationVPN(BaseModel):
     """
@@ -46,7 +42,7 @@ class LocationVPN(BaseModel):
         if value is None:
             return value
 
-        if value not in ('BlockedForEdit', 'WaitForCreation', 'InProgress', 'Active', 'Error', 'WaitForDeletion', 'Deleted', 'WaitForEdit'):
+        if value not in set(['BlockedForEdit', 'WaitForCreation', 'InProgress', 'Active', 'Error', 'WaitForDeletion', 'Deleted', 'WaitForEdit']):
             raise ValueError("must be one of enum values ('BlockedForEdit', 'WaitForCreation', 'InProgress', 'Active', 'Error', 'WaitForDeletion', 'Deleted', 'WaitForEdit')")
         return value
 
@@ -67,7 +63,7 @@ class LocationVPN(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of LocationVPN from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -81,10 +77,12 @@ class LocationVPN(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of ike_version
@@ -100,7 +98,7 @@ class LocationVPN(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of LocationVPN from a dict"""
         if obj is None:
             return None
@@ -111,8 +109,8 @@ class LocationVPN(BaseModel):
         _obj = cls.model_validate({
             "Location": obj.get("Location"),
             "Status": obj.get("Status"),
-            "IKE_Version": LocationVPNIKEVersion.from_dict(obj.get("IKE_Version")) if obj.get("IKE_Version") is not None else None,
-            "Subnets": [Subnets.from_dict(_item) for _item in obj.get("Subnets")] if obj.get("Subnets") is not None else None,
+            "IKE_Version": LocationVPNIKEVersion.from_dict(obj["IKE_Version"]) if obj.get("IKE_Version") is not None else None,
+            "Subnets": [Subnets.from_dict(_item) for _item in obj["Subnets"]] if obj.get("Subnets") is not None else None,
             "Peer_Ip": obj.get("Peer_Ip"),
             "SharedSecret": obj.get("SharedSecret")
         })

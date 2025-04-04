@@ -11,27 +11,17 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
+from typing import Any, Dict, List, Optional, Tuple, Union
+from typing_extensions import Annotated
 
 from pydantic import StrictStr, field_validator
-
-from typing import Any, Dict, List, Optional
-
+from typing import Optional
 from openapi_client.models.location import Location
 from openapi_client.models.private_cloud import PrivateCloud
-from openapi_client.models.private_cloud2 import PrivateCloud2
 
-from openapi_client.api_client import ApiClient
+from openapi_client.api_client import ApiClient, RequestSerialized
 from openapi_client.api_response import ApiResponse
 from openapi_client.rest import RESTResponseType
 
@@ -65,7 +55,7 @@ class PrivateCloudApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> None:
         """private_cloud_delete
 
 
@@ -102,7 +92,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -132,7 +122,7 @@ class PrivateCloudApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[None]:
         """private_cloud_delete
 
 
@@ -169,7 +159,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -236,7 +226,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -253,12 +243,11 @@ class PrivateCloudApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
@@ -279,12 +268,6 @@ class PrivateCloudApi:
         # process the body parameter
 
 
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                '*/*'
-            ]
-        )
 
 
         # authentication setting
@@ -540,12 +523,11 @@ class PrivateCloudApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
@@ -577,7 +559,8 @@ class PrivateCloudApi:
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
-                '*/*'
+                'application/xml', 
+                'application/json'
             ]
         )
 
@@ -622,7 +605,7 @@ class PrivateCloudApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> None:
         """private_cloud_location_delete
 
 
@@ -662,7 +645,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -693,7 +676,7 @@ class PrivateCloudApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[None]:
         """private_cloud_location_delete
 
 
@@ -733,7 +716,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -804,7 +787,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -822,12 +805,11 @@ class PrivateCloudApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
@@ -852,12 +834,6 @@ class PrivateCloudApi:
         # process the body parameter
 
 
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                '*/*'
-            ]
-        )
 
 
         # authentication setting
@@ -900,7 +876,7 @@ class PrivateCloudApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> None:
         """private_cloud_location_post
 
 
@@ -940,7 +916,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -971,7 +947,7 @@ class PrivateCloudApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[None]:
         """private_cloud_location_post
 
 
@@ -1011,7 +987,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -1082,7 +1058,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -1100,12 +1076,11 @@ class PrivateCloudApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
@@ -1128,13 +1103,21 @@ class PrivateCloudApi:
             _body_params = location
 
 
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                '*/*'
-            ]
-        )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/xml', 
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1176,7 +1159,7 @@ class PrivateCloudApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> None:
         """private_cloud_location_put
 
 
@@ -1216,7 +1199,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -1247,7 +1230,7 @@ class PrivateCloudApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[None]:
         """private_cloud_location_put
 
 
@@ -1287,7 +1270,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -1358,7 +1341,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -1376,12 +1359,11 @@ class PrivateCloudApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
@@ -1404,13 +1386,21 @@ class PrivateCloudApi:
             _body_params = location
 
 
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                '*/*'
-            ]
-        )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/xml', 
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1438,7 +1428,7 @@ class PrivateCloudApi:
     @validate_call
     def private_cloud_post(
         self,
-        private_cloud: Optional[PrivateCloud2] = None,
+        private_cloud: Optional[PrivateCloud] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1451,12 +1441,12 @@ class PrivateCloudApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> None:
         """private_cloud_post
 
 
         :param private_cloud:
-        :type private_cloud: PrivateCloud2
+        :type private_cloud: PrivateCloud
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1488,7 +1478,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -1505,7 +1495,7 @@ class PrivateCloudApi:
     @validate_call
     def private_cloud_post_with_http_info(
         self,
-        private_cloud: Optional[PrivateCloud2] = None,
+        private_cloud: Optional[PrivateCloud] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1518,12 +1508,12 @@ class PrivateCloudApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[None]:
         """private_cloud_post
 
 
         :param private_cloud:
-        :type private_cloud: PrivateCloud2
+        :type private_cloud: PrivateCloud
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1555,7 +1545,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -1572,7 +1562,7 @@ class PrivateCloudApi:
     @validate_call
     def private_cloud_post_without_preload_content(
         self,
-        private_cloud: Optional[PrivateCloud2] = None,
+        private_cloud: Optional[PrivateCloud] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1590,7 +1580,7 @@ class PrivateCloudApi:
 
 
         :param private_cloud:
-        :type private_cloud: PrivateCloud2
+        :type private_cloud: PrivateCloud
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1622,7 +1612,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -1639,12 +1629,11 @@ class PrivateCloudApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
@@ -1663,13 +1652,21 @@ class PrivateCloudApi:
             _body_params = private_cloud
 
 
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                '*/*'
-            ]
-        )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/xml', 
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1697,7 +1694,7 @@ class PrivateCloudApi:
     @validate_call
     def private_cloud_put(
         self,
-        private_cloud: Optional[PrivateCloud2] = None,
+        private_cloud: Optional[PrivateCloud] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1710,12 +1707,12 @@ class PrivateCloudApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
+    ) -> None:
         """private_cloud_put
 
 
         :param private_cloud:
-        :type private_cloud: PrivateCloud2
+        :type private_cloud: PrivateCloud
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1747,7 +1744,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -1764,7 +1761,7 @@ class PrivateCloudApi:
     @validate_call
     def private_cloud_put_with_http_info(
         self,
-        private_cloud: Optional[PrivateCloud2] = None,
+        private_cloud: Optional[PrivateCloud] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1777,12 +1774,12 @@ class PrivateCloudApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
+    ) -> ApiResponse[None]:
         """private_cloud_put
 
 
         :param private_cloud:
-        :type private_cloud: PrivateCloud2
+        :type private_cloud: PrivateCloud
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1814,7 +1811,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -1831,7 +1828,7 @@ class PrivateCloudApi:
     @validate_call
     def private_cloud_put_without_preload_content(
         self,
-        private_cloud: Optional[PrivateCloud2] = None,
+        private_cloud: Optional[PrivateCloud] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1849,7 +1846,7 @@ class PrivateCloudApi:
 
 
         :param private_cloud:
-        :type private_cloud: PrivateCloud2
+        :type private_cloud: PrivateCloud
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1881,7 +1878,7 @@ class PrivateCloudApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
+            '200': None,
             '401': None,
         }
         response_data = self.api_client.call_api(
@@ -1898,12 +1895,11 @@ class PrivateCloudApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
@@ -1922,13 +1918,21 @@ class PrivateCloudApi:
             _body_params = private_cloud
 
 
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                '*/*'
-            ]
-        )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/xml', 
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
